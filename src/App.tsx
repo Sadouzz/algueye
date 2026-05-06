@@ -12,6 +12,7 @@ import Header from "./components/layout/Header.tsx";
 import Footer from "./components/layout/Footer.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import Tenues from "./pages/Tenues.tsx";
+import Confections from "./pages/Confections.tsx";
 //import Footer from "./components/layout/Footer";
 //import Menu from "./pages/Menu";
 //import Order from "./pages/Order";
@@ -48,6 +49,7 @@ function AppContent() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/collections" element={<Collections />} />
+          <Route path="/confections" element={<Confections />} />
           <Route path="/collections/tenues" element={<Tenues />} />
           <Route path="/about" element={<About />} />
           <Route path="/events" element={<Evenements />} />

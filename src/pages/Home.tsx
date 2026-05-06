@@ -20,7 +20,7 @@ export default function Home() {
                     <h2 className="text-black text-3xl" style={{ marginBottom: '0' }}>Nos Collections</h2>
                 </div>
             </div>
-            <div className="bg-white border-b  border-gold-dark border-3 pb-5!" style={{ height: '1000px', position: 'relative' }}>
+            <div className="bg-white border-b-1  border-gold-dark pb-5!" style={{ height: '600px', position: 'relative' }}>
                 
                 <CircularGallery bend={1} textColor="#000" borderRadius={0}
                     scrollSpeed={2}

@@ -102,6 +102,7 @@ export default function Header() {
 
                 {/* --- DROITE --- */}
                 <div className="flex flex-1 h-full items-center justify-end border-l border-black bg-white">
+                    <HeaderLink to="/confections" label="Confections" />
                     <HeaderLink to="/collections" label="Collections" />
                     <HeaderLink to="/contact" label="Contact" />
                 </div>
