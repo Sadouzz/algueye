@@ -11,10 +11,6 @@ import img7 from "../../assets/imgInsta/img7.jpeg"
 import img8 from "../../assets/imgInsta/img8.jpeg"
 import img9 from "../../assets/imgInsta/img9.jpeg"
 import img10 from "../../assets/imgInsta/img10.jpeg"
-import img12 from "../../assets/imgInsta/img12.jpeg"
-import img13 from "../../assets/imgInsta/img13.jpeg"
-import img14 from "../../assets/imgInsta/img14.jpeg"
-import img15 from "../../assets/imgInsta/img15.jpeg"
 
 type GL = Renderer['gl'];
 

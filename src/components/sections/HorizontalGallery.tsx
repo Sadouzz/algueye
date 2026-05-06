@@ -2,21 +2,22 @@ import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { MonitorPlay, Trophy, Crown, Gamepad } from 'lucide-react';
+import { MonitorPlay, Trophy, Gamepad } from 'lucide-react';
 
 import a7 from "../../assets/tenues/a7.jpg";
 import a8 from "../../assets/tenues/a8.jpg";
 import a9 from "../../assets/tenues/a9.jpg";
-import b1 from "../../assets/tenues/b1.jpg";
-import b2 from "../../assets/tenues/b2.jpg";
-import b3 from "../../assets/tenues/b3.jpg";
-import b4 from "../../assets/tenues/b4.jpg";
-import b5 from "../../assets/tenues/b5.jpg";
+// import b1 from "../../assets/tenues/b1.jpg";
+// import b2 from "../../assets/tenues/b2.jpg";
+// import b3 from "../../assets/tenues/b3.jpg";
+// import b4 from "../../assets/tenues/b4.jpg";
+// import b5 from "../../assets/tenues/b5.jpg";
 
 const zones = [
   {
-    id: 'esport',
-    title: 'ARÈNE E-SPORT',
+    id: 'harmattan2025',
+    title: 'Collection Été 2025 — « Harmattan »',
+    subtitle: "Défilés",
     number: '01',
     image: a7,
     icon: Trophy,
@@ -26,8 +27,9 @@ const zones = [
     description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic mollitia sequi repellendus cupiditate dignissimos nesciunt."
   },
   {
-    id: 'vr',
-    title: 'SIMULATEURS & VR',
+    id: 'racines',
+    title: 'Exposition « Racines »',
+    subtitle: "Expositions",
     number: '02',
     image: a8,
     icon: MonitorPlay,
@@ -37,8 +39,9 @@ const zones = [
     description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic mollitia sequi repellendus cupiditate dignissimos nesciunt."
   },
   {
-    id: 'retro',
-    title: 'RETRO ARCADE',
+    id: 'broderie',
+    title: "Atelier Broderie d'Art",
+    subtitle: "Ateliers",
     number: '03',
     image: a9,
     icon: Gamepad,
@@ -80,7 +83,7 @@ export const HorizontalGallery = () => {
     const clamp = 0; // Limit maximum skew
 
     ScrollTrigger.create({
-      onUpdate: (self) => {
+      onUpdate: (_self) => {
         // Calculate velocity. Multiply by a factor to increase/decrease sensitivity
         const velocity = clamp;
 
@@ -127,12 +130,12 @@ export const HorizontalGallery = () => {
             style={{ transformOrigin: "bottom center", overflow: "hidden" }}
           >
             {/* Vertical Typography on the left */}
-            <div className="absolute -left-12 bottom-12 -rotate-180 [writing-mode:vertical-rl] text-[8rem] font-black uppercase tracking-tighter  text-slate-900/40 z-0 select-none hidden md:block">
+            <div className="absolute  bottom-12 -rotate-180 [writing-mode:vertical-rl] text-[8rem] font-black uppercase tracking-tighter  text-slate-900/40 z-0 select-none hidden md:block">
               {zone.title}
             </div>
 
             {/* The actual card */}
-            <div className="relative w-full h-full z-10 overflow-hidden border mr-20! border-slate-800">
+            <div className="relative w-full h-full z-10 overflow-hidden border mr-20! border-black">
               <img
                 src={zone.image}
                 alt={zone.title}
@@ -140,12 +143,18 @@ export const HorizontalGallery = () => {
               />
 
               <div className="absolute inset-0 bg-gradient-to-t from-black via-gold/40 to-transparent p-12! flex flex-col justify-between">
-                <div className="flex justify-between items-start">
-                  <div className={`p-4! rounded-xl bg-slate-950/80 backdrop-blur-sm border border-slate-800 ${zone.color}`}>
+                <div className="flex justify-between items-center">
+                  {/* <div className={`p-4! rounded-xl bg-slate-950/80 backdrop-blur-sm border border-black ${zone.color}`}>
                     <zone.icon className="w-8 h-8" />
+                  </div> */}
+                  <div className={`py-1! px-3! uppercase text-xs rounded-xs text-gold-dark bg-gold-light border border-gold-dark`}>
+                    <span>
+                      {zone.subtitle}
+                    </span>
                   </div>
-                  <div className={`py-1! px-3! rounded-sm bg-gold-dark/80 backdrop-blur-sm border border-slate-800 ${zone.color}`}>
-                    <span className={`text-xl  text-white`}>
+                  
+                  <div className={`py-1! px-3! rounded-sm bg-gold-dark/80 backdrop-blur-sm  ${zone.color}`}>
+                    <span className={`text-sm  text-white`}>
                       {zone.date}
                     </span>
                   </div>

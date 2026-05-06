@@ -11,6 +11,7 @@ import ScrollToTop from './components/utils/ScrollToTop';
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import NotFound from "./pages/NotFound";
+import Tenues from "./pages/Tenues";
 //import Footer from "./components/layout/Footer";
 //import Menu from "./pages/Menu";
 //import Order from "./pages/Order";
@@ -47,9 +48,11 @@ function AppContent() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/collections" element={<Collections />} />
+          <Route path="/collections/tenues" element={<Tenues />} />
           <Route path="/about" element={<About />} />
           <Route path="/events" element={<Evenements />} />
           <Route path="/contact" element={<Contact />} />
+
           <Route path="*" element={<NotFound /> }/>
         </Routes>
         <Footer />

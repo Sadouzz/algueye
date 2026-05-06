@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useCallback } from 'react';
+import React, { useRef, useEffect, useState, useCallback, type CSSProperties } from 'react';
 import { Link } from 'react-router-dom';
 
 // 1. Définition de la structure d'un projet
@@ -185,11 +185,16 @@ const CarouselParallax: React.FC<CarouselParallaxProps> = ({ projects = [] }) =>
             flexWrap: 'wrap'
         },
         tag: {
-            padding: "4px 12px",
-            fontSize: "0.8rem",
-            color: "white",
-            textDecoration: "none",
-            background: "#8B6914"
+            fontFamily: 'var(--font-sans)',
+            fontSize: '0.55rem',
+            letterSpacing: '0.15em',
+            textTransform: 'uppercase',
+            padding: '3px 10px',
+            borderRadius: '2px',
+            fontWeight: 600,
+            background: 'rgba(139,105,20,0.12)',
+            color: 'var(--color-gold-dark)',
+            border: '1px solid rgba(139,105,20,0.4)'
             // Ajout du style pour les tags si nécessaire
         },
         actions: {
@@ -309,8 +314,8 @@ const CarouselParallax: React.FC<CarouselParallaxProps> = ({ projects = [] }) =>
                 </div>
 
                 <div className='mt-5'>
-                    <Link to={'/projects'} className='naked-link fw-bold cursor-target rounded-0'>
-                        SEE ALL PROJECTS
+                    <Link to={'/tenues'} className='naked-link fw-bold cursor-target rounded-0'>
+                        VOIR TOUTES LES TENUES
                     </Link>
                 </div>
 

@@ -1,13 +1,22 @@
-import MiniTitleWithBar from "../components/atoms/MiniTitleWithBar";
 import PageHeroSection from "../components/sections/PageHeroSection";
 import ServiceElement from "../components/sections/ServiceElement";
 import { collections } from "../data/collectionsData";
 import useIsDesktop from "../hooks/useIsDesktop";
 
-export default function Collections()
-{
+interface Collection {
+    id: string;
+    title: string;
+    subtitle: string;
+    content: string;
+    keys?: string[];
+    img?: string;
+    miniTitleWithBar?: string;
+    projects?: any[];
+}
+
+export default function Collections() {
     const isDesktop = useIsDesktop();
-    return(
+    return (
         <>
             <PageHeroSection
                 contentMiniBar="NOS COLLECTIONS"
@@ -51,7 +60,7 @@ export default function Collections()
                     </div>
                 </div>
 
-                {collections.map((service) => (
+                {collections.map((service: Collection) => (
                     <ServiceElement
                         key={service.id}
                         {...service}
@@ -59,5 +68,5 @@ export default function Collections()
                 ))}
             </section>
         </>
-    )
+    );
 }

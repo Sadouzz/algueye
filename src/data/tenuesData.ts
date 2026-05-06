@@ -1,11 +1,6 @@
 import a7 from '../assets/tenues/a7.jpg';
 import a8 from '../assets/tenues/a8.jpg';
 import a9 from '../assets/tenues/a9.jpg';
-import b1 from '../assets/tenues/b1.jpg';
-import b2 from '../assets/tenues/b2.jpg';
-import b3 from '../assets/tenues/b3.jpg';
-import b4 from '../assets/tenues/b4.jpg';
-import b5 from '../assets/tenues/b5.jpg';
 
 
 export const tenues = [

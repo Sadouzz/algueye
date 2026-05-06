@@ -1,8 +1,8 @@
-import React, { useEffect, useLayoutEffect, useState, useRef } from "react";
+import React, { useEffect, useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import MiniTitleWithBar from "../atoms/MiniTitleWithBar";
+//import MiniTitleWithBar from "../atoms/MiniTitleWithBar";
 import CarouselParallax from "../atoms/CarouselParallax";
 import useIsDesktop from "../../hooks/useIsDesktop";
 
@@ -30,7 +30,7 @@ const ServiceElement: React.FC<ServiceElementProps> = ({
     projects,
 }) => {
     const isDesktop = useIsDesktop();
-    const [spacerHeight, setSpacerHeight] = useState<number>(0);
+    //const [spacerHeight, setSpacerHeight] = useState<number>(0);
 
     const sectionRef = useRef<HTMLDivElement>(null);
     const compRef = useRef<HTMLDivElement>(null);
@@ -40,10 +40,10 @@ const ServiceElement: React.FC<ServiceElementProps> = ({
 
     useLayoutEffect(() => {
         if (!compRef.current) return;
-        const compPaddingTop = parseFloat(
+        //const compPaddingTop = parseFloat(
             window.getComputedStyle(compRef.current).paddingTop
-        );
-        setSpacerHeight(compPaddingTop);
+        //);
+        //setSpacerHeight(compPaddingTop);
     }, []);
 
     useEffect(() => {

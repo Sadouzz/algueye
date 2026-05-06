@@ -1,4 +1,10 @@
-export default function MiniTitleWithBar({ content, color = 'red', textColor='' }) {
+interface MiniTitleWithBarProps {
+    content: React.ReactNode;
+    color?: string;
+    textColor?: string;
+}
+
+export default function MiniTitleWithBar({ content, color = 'red', textColor='' }: MiniTitleWithBarProps) {
     return (
         <div className="position-relative d-inline-block">
             <small
