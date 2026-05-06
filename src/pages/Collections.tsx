@@ -1,6 +1,6 @@
 import PageHeroSection from "../components/sections/PageHeroSection";
 import ServiceElement from "../components/sections/ServiceElement";
-import { collections } from "../data/collections.data";
+import { collections } from "../data/collections.data.ts";
 import useIsDesktop from "../hooks/useIsDesktop";
 
 interface Collection {

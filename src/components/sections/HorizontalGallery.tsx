@@ -4,9 +4,9 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MonitorPlay, Trophy, Gamepad } from 'lucide-react';
 
-import a7 from "../../assets/tenues/a7.jpg";
-import a8 from "../../assets/tenues/a8.jpg";
-import a9 from "../../assets/tenues/a9.jpg";
+import a7 from "../../assets/tenues/A7.jpg";
+import a8 from "../../assets/tenues/A8.jpg";
+import a9 from "../../assets/tenues/A9.jpg";
 // import b1 from "../../assets/tenues/b1.jpg";
 // import b2 from "../../assets/tenues/b2.jpg";
 // import b3 from "../../assets/tenues/b3.jpg";

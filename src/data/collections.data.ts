@@ -1,9 +1,9 @@
 // servicesData.js
-import a7 from "../assets/tenues/a7.jpg";
-import a8 from "../assets/tenues/a8.jpg";
-import a9 from "../assets/tenues/a9.jpg";
-import b1 from "../assets/tenues/b1.jpg";
-import { tenues } from "./tenues.data";
+import a7 from "../assets/tenues/A7.jpg";
+import a8 from "../assets/tenues/A8.jpg";
+import a9 from "../assets/tenues/A9.jpg";
+import b1 from "../assets/tenues/B1.jpg";
+import { tenues } from "./tenues.data.ts";
 
 export const collections = [
     {

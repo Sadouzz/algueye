@@ -1,6 +1,6 @@
-import a7 from '../assets/tenues/a7.jpg';
-import a8 from '../assets/tenues/a8.jpg';
-import a9 from '../assets/tenues/a9.jpg';
+import a7 from '../assets/tenues/A7.jpg';
+import a8 from '../assets/tenues/A8.jpg';
+import a9 from '../assets/tenues/A9.jpg';
 
 
 export const tenues = [
