@@ -22,7 +22,7 @@ export default function PageHeroSection({
     secondTitle,
 }: PageHeroSectionProps) {
     return (
-        <section className="bg-white py-12! min-h-[50vh]">
+        <section className="bg-white pt-32! min-h-[50vh]">
             <div className="mx-12!">
                 {/* Équivalent simplifié de container-fluid */}
                 <div className="w-full px-4 sm:px-6 lg:px-8">

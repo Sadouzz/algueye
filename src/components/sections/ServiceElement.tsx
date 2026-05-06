@@ -205,7 +205,7 @@ const ServiceElement: React.FC<ServiceElementProps> = ({
                                 {subtitle}
                             </small>
                             <h1 className="mt-3 mb-0 text-4xl font-bold">
-                                <span className="font-[Poppins] text-gold">{"/> "}</span>
+                                <span className="font-[Poppins] text-gold">{"- "}</span>
                                 {title}
                             </h1>
                         </div>

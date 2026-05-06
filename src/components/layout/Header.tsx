@@ -22,36 +22,31 @@ export default function Header() {
             return;
         }
 
-        const isHome = false; // const isHome = location.pathname === "/";
-
-        const triggerElement = isHome ? "#about" : "body";
-        const startValue = isHome ? "top bottom" : "top -30px";
-
-        ScrollTrigger.create({
-            trigger: triggerElement,
-            start: startValue,
-            onEnter: () => {
-                gsap.to(el, {
-                    position: 'fixed',
-                    top: '10px',
-                    left: '50%',
-                    xPercent: -50,
-                    duration: 0.4,
-                    ease: "power2.out",
-                });
-                gsap.to(".collapsed", { color: '#0e0e0e', duration: 0.3 });
-            },
-            onLeaveBack: () => {
-                gsap.to(el, {
-                    position: 'absolute',
-                    top: 'calc(100vh - 100px)',
-                    left: '50%',
-                    xPercent: -50,
-                    duration: 0.4,
-                });
-                gsap.to(".collapsed", { color: 'white', duration: 0.3 });
-            }
-        });
+        // ScrollTrigger.create({
+        //     trigger: triggerElement,
+        //     start: startValue,
+        //     onEnter: () => {
+        //         gsap.to(el, {
+        //             position: 'fixed',
+        //             top: '10px',
+        //             left: '50%',
+        //             xPercent: -50,
+        //             duration: 0.4,
+        //             ease: "power2.out",
+        //         });
+        //         gsap.to(".collapsed", { color: '#0e0e0e', duration: 0.3 });
+        //     },
+        //     onLeaveBack: () => {
+        //         gsap.to(el, {
+        //             position: 'absolute',
+        //             top: 'calc(100vh - 100px)',
+        //             left: '50%',
+        //             xPercent: -50,
+        //             duration: 0.4,
+        //         });
+        //         gsap.to(".collapsed", { color: 'white', duration: 0.3 });
+        //     }
+        // });
     }, [isContact, location.pathname]);
 
     return (
@@ -59,8 +54,8 @@ export default function Header() {
             ref={headerRef}
             className="raleway overflow-hidden w-[calc(100vw-32px)] lg:w-[calc(100vw-64px)] max-w-[1800px] shadow-sm bg-white border border-black"
             style={{
-                position: 'absolute',
-                top: 'calc(100vh - 100px)',
+                position: 'fixed',
+                top: '10px',
                 left: '50%',
                 transform: 'translateX(-50%)',
                 height: '64px',
