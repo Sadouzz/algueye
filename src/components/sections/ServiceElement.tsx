@@ -271,7 +271,7 @@ const ServiceElement: React.FC<ServiceElementProps> = ({
             {/* Projects Section */}
             {projects && (
                 <div className={!isDesktop ? "px-5" : ""}>
-                    <div className="section-label mt-3!" style={{  marginBottom: '1rem' }}>
+                    <div className="section-label mt-3!" style={{ marginBottom: '1rem' }}>
                         <span>{miniTitleWithBar}</span>
                     </div>
                     <div className="mt-3!">

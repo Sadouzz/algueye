@@ -1,6 +1,7 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
+import '../../styles/Testimonials.css';
 
 // Importation des styles de base de Swiper
 import 'swiper/css';
@@ -71,10 +72,10 @@ const testimonialsData: Testimonial[] = [
 const Testimonials: React.FC = () => {
     return (
         <div className="bg-white testimonial-wrapper" data-section="template--18773151187141__testimonial_HGhyBK" data-block-size="6">
-            <div className="container">
+            <div className="container-fluid mx-10!">
                 {/* Section Header */}
-                <div className="pt-15!" style={{ textAlign: 'center', marginBottom: '2rem' }}>
-                    <div className="section-label " style={{ justifyContent: 'center', marginBottom: '1rem' }}>
+                <div className="pt-5! px" style={{  marginBottom: '2rem' }}>
+                    <div className="section-label " style={{  marginBottom: '1rem' }}>
                         <span className='uppercase'>Découvrez</span>
                     </div>
                     <h2 className="text-black text-3xl" style={{ marginBottom: '0' }}>Les témoignages de nos clients</h2>

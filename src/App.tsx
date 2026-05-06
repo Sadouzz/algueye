@@ -4,9 +4,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import Home from './pages/Home';
 import Collections from './pages/Collections';
+import About from './pages/About';
+import Evenements from './pages/Evenements';
+import Contact from './pages/Contact';
 import ScrollToTop from './components/utils/ScrollToTop';
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
+import NotFound from "./pages/NotFound";
 //import Footer from "./components/layout/Footer";
 //import Menu from "./pages/Menu";
 //import Order from "./pages/Order";
@@ -43,8 +47,10 @@ function AppContent() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/collections" element={<Collections />} />
-          {/* <Route path="/menu" element={<Menu />} />
-          <Route path="/order" element={<Order />} /> */}
+          <Route path="/about" element={<About />} />
+          <Route path="/events" element={<Evenements />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="*" element={<NotFound /> }/>
         </Routes>
         <Footer />
       </main>

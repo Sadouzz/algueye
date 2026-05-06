@@ -1,0 +1,114 @@
+/* Couleur de fond globale de la section (gris clair) */
+.testimonial-wrapper {
+    background-color: #f3f4f6;
+    padding: 60px 20px 80px;
+    /* Ajustez selon vos besoins */
+}
+
+/* Espacement du titre s'il y en a un */
+.section-header-wrapper {
+    margin-bottom: 40px;
+}
+
+/* Style de la carte Témoignage */
+.testimonial-item-inner {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    /* Coins très arrondis comme sur l'image */
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    /* Permet d'avoir des cartes de la même hauteur */
+    min-height: 280px;
+    /* Hauteur minimale pour l'uniformité */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    /* Ombre très subtile (optionnel) */
+}
+
+/* Texte du témoignage */
+.testimonial-content {
+    margin-bottom: 30px;
+}
+
+.testimonial-content .card-text {
+    color: #374151;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* Section Auteur (Image + Infos) */
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    /* Espace entre l'image et le texte */
+}
+
+/* Image de l'auteur */
+.testimonial-media {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    /* Cercle parfait */
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.testimonial-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Assure que l'image remplisse le cercle sans se déformer */
+    display: block;
+}
+
+/* Infos de l'auteur */
+.testimonial-author-name {
+    font-weight: 500;
+    color: #111827;
+    margin-bottom: 4px;
+}
+
+.testimonial-author-place {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+/* =========================================
+   Personnalisation de la pagination Swiper 
+   ========================================= */
+
+/* Conteneur de la pagination pour l'éloigner des cartes */
+.testimonials-slider-container .swiper-pagination {
+    position: relative;
+    margin-top: 40px;
+    bottom: 0;
+}
+
+/* Points inactifs (Noirs) */
+.testimonials-slider-container .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background-color: #000000;
+    opacity: 1;
+    /* Annule la transparence par défaut de Swiper */
+    margin: 0 6px !important;
+    /* Espacement entre les points */
+    transition: all 0.3s ease;
+}
+
+/* Point actif (Pilule grise) */
+.testimonials-slider-container .swiper-pagination-bullet-active {
+    width: 28px;
+    /* Plus large pour faire l'effet pilule */
+    border-radius: 10px;
+    background-color: #d1d5db;
+    /* Gris clair */
+}
+
+/* Assurer que les slides ont la même hauteur pour flex-grow */
+.testimonials-list .swiper-slide {
+    height: auto;
+}

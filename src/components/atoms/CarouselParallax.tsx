@@ -185,6 +185,11 @@ const CarouselParallax: React.FC<CarouselParallaxProps> = ({ projects = [] }) =>
             flexWrap: 'wrap'
         },
         tag: {
+            padding: "4px 12px",
+            fontSize: "0.8rem",
+            color: "white",
+            textDecoration: "none",
+            background: "#8B6914"
             // Ajout du style pour les tags si nécessaire
         },
         actions: {
@@ -200,8 +205,8 @@ const CarouselParallax: React.FC<CarouselParallaxProps> = ({ projects = [] }) =>
         },
         button: {
             background: 'transparent',
-            border: '1px solid #cc001e',
-            color: '#cc001e',
+            border: '1px solid #C9A84C',
+            color: '#C9A84C',
             padding: '12px 30px',
             borderRadius: '25px',
             fontSize: '0.9rem',
@@ -221,8 +226,8 @@ const CarouselParallax: React.FC<CarouselParallaxProps> = ({ projects = [] }) =>
         },
         arrowButton: {
             background: 'transparent',
-            border: '1px solid #cc001e',
-            color: '#cc001e',
+            border: '1px solid #C9A84C',
+            color: '#C9A84C',
             width: '45px',
             height: '45px',
             borderRadius: '50%',
@@ -242,7 +247,7 @@ const CarouselParallax: React.FC<CarouselParallaxProps> = ({ projects = [] }) =>
         progressBar: {
             position: 'absolute',
             height: '100%',
-            background: '#cc001e',
+            background: '#C9A84C',
             borderRadius: '1px',
             transition: 'transform 0.3s ease',
             width: `${(currentIndex + 1) / safeProjects.length * 100}%`
@@ -251,7 +256,7 @@ const CarouselParallax: React.FC<CarouselParallaxProps> = ({ projects = [] }) =>
             position: 'absolute',
             top: '10px',
             right: '10px',
-            background: isVisible ? '#cc001e' : '#f44336',
+            background: isVisible ? '#C9A84C' : '#f44336',
             color: 'white',
             padding: '5px 10px',
             borderRadius: '12px',
@@ -283,7 +288,7 @@ const CarouselParallax: React.FC<CarouselParallaxProps> = ({ projects = [] }) =>
                                         }}
                                     />
                                 </div>
-                                <div style={styles.slideContent} className='d-flex justify-content-between align-items-center'>
+                                <div style={styles.slideContent} className='d-flex justify-between items-center'>
                                     <p style={styles.projectName} className='m-0'>{project.title}</p>
                                     <div style={styles.tags}>
                                         {project.tags && project.tags.map((tag, tagIndex) => (
@@ -309,7 +314,7 @@ const CarouselParallax: React.FC<CarouselParallaxProps> = ({ projects = [] }) =>
                     </Link>
                 </div>
 
-                <div style={styles.actions}>
+                <div style={styles.actions} className='mb-15!'>
                     <div style={styles.carouselActions}>
                         <button
                             className='cursor-target'
@@ -318,7 +323,7 @@ const CarouselParallax: React.FC<CarouselParallaxProps> = ({ projects = [] }) =>
                             disabled={safeProjects.length === 0}
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 9 16" width="9" height="16">
-                                <path stroke="#cc001e" strokeLinecap="round" d="M8 1 1.169 7.831 8 14.663" />
+                                <path stroke="#C9A84C" strokeLinecap="round" d="M8 1 1.169 7.831 8 14.663" />
                             </svg>
                         </button>
 
@@ -333,7 +338,7 @@ const CarouselParallax: React.FC<CarouselParallaxProps> = ({ projects = [] }) =>
                             disabled={safeProjects.length === 0}
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 9 16" width="9" height="16">
-                                <path stroke="#cc001e" strokeLinecap="round" d="m1 1 6.831 6.831L1 14.663" />
+                                <path stroke="#C9A84C" strokeLinecap="round" d="m1 1 6.831 6.831L1 14.663" />
                             </svg>
                         </button>
                     </div>

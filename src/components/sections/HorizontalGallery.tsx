@@ -22,7 +22,8 @@ const zones = [
     icon: Trophy,
     color: 'text-neon-green',
     date: "20/11/2025",
-    link: "/"
+    link: "/",
+    description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic mollitia sequi repellendus cupiditate dignissimos nesciunt."
   },
   {
     id: 'vr',
@@ -32,7 +33,8 @@ const zones = [
     icon: MonitorPlay,
     color: 'text-electric-blue',
     date: "20/11/2025",
-    link: "/"
+    link: "/",
+    description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic mollitia sequi repellendus cupiditate dignissimos nesciunt."
   },
   {
     id: 'retro',
@@ -42,9 +44,10 @@ const zones = [
     icon: Gamepad,
     color: 'text-purple-500',
     date: "20/11/2025",
-    link: "/"
+    link: "/",
+    description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic mollitia sequi repellendus cupiditate dignissimos nesciunt."
   },
-  
+
 ];
 
 export const HorizontalGallery = () => {
@@ -121,7 +124,7 @@ export const HorizontalGallery = () => {
           <div
             key={zone.id}
             className="w-[85vw] md:w-[60vw] h-[70vh] shrink-0 mx-8 md:mx-16 relative flex items-center group gallery-skew-target"
-            style={{ transformOrigin: "bottom center" }}
+            style={{ transformOrigin: "bottom center", overflow: "hidden" }}
           >
             {/* Vertical Typography on the left */}
             <div className="absolute -left-12 bottom-12 -rotate-180 [writing-mode:vertical-rl] text-[8rem] font-black uppercase tracking-tighter  text-slate-900/40 z-0 select-none hidden md:block">
@@ -141,15 +144,20 @@ export const HorizontalGallery = () => {
                   <div className={`p-4! rounded-xl bg-slate-950/80 backdrop-blur-sm border border-slate-800 ${zone.color}`}>
                     <zone.icon className="w-8 h-8" />
                   </div>
-                  <span className={`text-4xl  text-white`}>
-                    {zone.date}
-                  </span>
+                  <div className={`py-1! px-3! rounded-sm bg-gold-dark/80 backdrop-blur-sm border border-slate-800 ${zone.color}`}>
+                    <span className={`text-xl  text-white`}>
+                      {zone.date}
+                    </span>
+                  </div>
                 </div>
 
                 <div>
                   <h3 className="text-4xl md:text-5xl font-black uppercase text-white mb-4">
                     {zone.title}
                   </h3>
+                  <p>
+                    {zone.description}
+                  </p>
                   <div className="w-12 h-1 bg-white mb-6" />
                 </div>
               </div>
