@@ -1,47 +1,102 @@
-import a7 from '../assets/tenues/A7.jpg';
-import a8 from '../assets/tenues/A8.jpg';
-import a9 from '../assets/tenues/A9.jpg';
-
+import a7 from '../assets/tenues/A7.jpeg';
+import a8 from '../assets/tenues/A8.jpeg';
+import a9 from '../assets/tenues/A9.jpeg';
+import b1 from '../assets/tenues/B1.jpeg';
+import b2 from '../assets/tenues/B2.jpeg';
+import b3 from '../assets/tenues/B3.jpeg';
+import b4 from '../assets/tenues/B4.jpeg';
+import h1 from '../assets/tenues/H1.jpeg';
+import h2 from '../assets/tenues/H2.jpeg';
+import img1 from '../assets/tenues/DSC00990.jpeg';
+import img2 from '../assets/tenues/DSC01985.jpeg';
 
 export const tenues = [
     {
-        id: 1,
-        slug: 'toubacouta-evasion',
-        title: 'ToubaCouta Evasion',
-        tags: ['WEB', 'DESIGN'],
-        location: 'Saloum Delta, Senegal',
-
-        challenge:
-            "Design and develop an immersive website that reflects the calm, authenticity, and natural beauty of ToubaCouta Evasion, while making it easy for visitors to discover the lodge, its experiences, and book a stay.",
-
-        solution:
-            "A clean and nature-inspired website combining strong visual storytelling, smooth navigation, and clear content structure to highlight the lodge, activities, and unique atmosphere of the Saloum Delta.",
-
-        liveUrl: "https://toubacoutaevasion.com",
-
-        awards: [],
-
-        results:
-            "Improved online visibility and user engagement, providing visitors with a clear and attractive overview of the lodge and encouraging direct contact and reservations.",
-
-        images: [
-            a7,
-            a8,
-            a9,
-        ],
-
-        description:
-            "ToubaCouta Evasion is an eco-lodge nestled in the heart of the Saloum Delta. The website showcases a peaceful and authentic retreat where visitors can reconnect with nature through river excursions, wildlife discovery, and local cultural experiences. The platform emphasizes simplicity, elegance, and immersion, reflecting the spirit of the place.",
-
-        categories: ['web', 'design'],
+        id: "tenue-hc-1",
+        slug: '/tenues/grand-boubou-imperial',
+        title: 'Grand Boubou Impérial',
+        tags: ['HAUTE COUTURE', 'BRODERIE'],
         image: a7,
-
-        technologies: ['React', 'CSS', 'Responsive Design'],
-        date: '2024',
-        status: 'Published',
-
-        githubUrl: 'https://github.com/...',
-
-        type: 'large'
+        description: "Un grand boubou d'exception avec des finitions à la main, incarnant le prestige de la haute couture africaine."
     },
+    {
+        id: "tenue-hc-2",
+        slug: '/tenues/ensemble-royal',
+        title: 'Ensemble Royal',
+        tags: ['HAUTE COUTURE', 'SOIE'],
+        image: a8,
+        description: "Pièce maîtresse alliant matières nobles et coupe millimétrée."
+    },
+    {
+        id: "tenue-hc-3",
+        slug: '/tenues/tunique-prestige',
+        title: 'Tunique Prestige',
+        tags: ['HAUTE COUTURE', 'SUR MESURE'],
+        image: a9,
+        description: "Tunique majestueuse ornée de détails dorés signature."
+    },
+    {
+        id: "tenue-pap-1",
+        slug: '/tenues/costume-croise',
+        title: 'Costume Croisé',
+        tags: ['PRET-A-PORTER', 'TAILLEUR'],
+        image: b1,
+        description: "L'élégance moderne avec une structure impeccable pour le quotidien."
+    },
+    {
+        id: "tenue-pap-2",
+        slug: '/tenues/veste-structuree',
+        title: 'Veste Structurée',
+        tags: ['PRET-A-PORTER', 'COTON'],
+        image: b2,
+        description: "Une veste contemporaine qui sublime chaque silhouette."
+    },
+    {
+        id: "tenue-pap-3",
+        slug: '/tenues/ensemble-casual-chic',
+        title: 'Ensemble Casual Chic',
+        tags: ['PRET-A-PORTER', 'LIN'],
+        image: b3,
+        description: "Le confort du lin couplé à une esthétique raffinée."
+    },
+    {
+        id: "tenue-pap-4",
+        slug: '/tenues/tunique-minimaliste',
+        title: 'Tunique Minimaliste',
+        tags: ['PRET-A-PORTER', 'ESSENTIEL'],
+        image: b4,
+        description: "Une pièce épurée, parfaite pour toutes les occasions."
+    },
+    {
+        id: "tenue-soiree-1",
+        slug: '/tenues/robe-emeraude',
+        title: 'Robe de Soirée Émeraude',
+        tags: ['SOIREE', 'SEQUINS'],
+        image: h1,
+        description: "Une robe éblouissante conçue pour les tapis rouges."
+    },
+    {
+        id: "tenue-soiree-2",
+        slug: '/tenues/smoking-velours',
+        title: 'Smoking Velours',
+        tags: ['SOIREE', 'ELEGANCE'],
+        image: h2,
+        description: "L'allure ultime avec ce smoking aux finitions luxueuses."
+    },
+    {
+        id: "tenue-maroq-1",
+        slug: '/tenues/sac-signature',
+        title: 'Sac Signature',
+        tags: ['MAROQUINERIE', 'CUIR'],
+        image: img1,
+        description: "Sac structuré façonné dans les cuirs les plus précieux."
+    },
+    {
+        id: "tenue-maroq-2",
+        slug: '/tenues/pochette-soiree',
+        title: 'Pochette Soirée',
+        tags: ['ACCESSOIRES', 'PREMIUM'],
+        image: img2,
+        description: "Le détail incontournable pour parfaire votre tenue."
+    }
 ];

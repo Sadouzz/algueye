@@ -137,11 +137,18 @@ export default function About() {
 
             {/* ── Section Histoire (fond blanc, layout 2 col) ── */}
             <section className="bg-white section-trigger py-0! text-black">
+
                 <div className={`${isDesktop ? 'px-12!' : 'px-5'} py-20!`}>
-                    {/* Section label */}
-                    <div className="section-label mb-4!">
-                        <span>NOTRE HISTOIRE</span>
+                    <div className="relative flex w-full flex-col-reverse ">
+                        <h2 className="uppercase font-bold text-balance text-4xl lg:text-7xl! block">
+                            UNE VISION
+                            <em style={{ color: 'var(--color-gold-dark)' }}> Née à Dakar</em>
+                        </h2>
+                        <span className="w-full rotate-[-2deg] font-serif text-gold font-quickbrush mb-3! xl:-mb-4 text-4xl lg:text-6xl">
+                            Notre Histoire
+                        </span>
                     </div>
+                    {/* Section label */}
 
                     <div
                         style={{
@@ -152,21 +159,8 @@ export default function About() {
                         }}
                     >
                         {/* Colonne gauche : texte */}
-                        <div>
-                            <h1
-                                className="poppins split"
-                                style={{
-                                    fontFamily: 'var(--font-serif)',
-                                    fontSize: 'clamp(2rem, 4vw, 3.5rem)',
-                                    fontWeight: 300,
-                                    lineHeight: 1.1,
-                                    marginBottom: '2rem',
-                                    color: '#000',
-                                }}
-                            >
-                                Une vision née<br />
-                                <em style={{ color: 'var(--color-gold-dark)' }}>dans la Médina</em>
-                            </h1>
+                        <div className='mt-10!'>
+
                             <p
                                 className="raleway"
                                 style={{
@@ -263,8 +257,13 @@ export default function About() {
             {/* ── Chiffres clés (fond noir) ──────────────────── */}
             <section className="bg-black py-20!" ref={statsRef}>
                 <div className={`container`}>
-                    <div className="section-label" style={{ marginBottom: '3rem', justifyContent: 'center' }}>
-                        <span>EN CHIFFRES</span>
+                    <div className="relative flex w-full flex-col-reverse text-center">
+                        <h2 className="uppercase font-bold text-balance text-4xl lg:text-7xl! block">
+                            CHIFFRES
+                        </h2>
+                        <span className="w-full rotate-[-2deg] font-serif text-gold font-quickbrush -mb-1! xl:-mb-2 text-4xl lg:text-6xl">
+                            Clés
+                        </span>
                     </div>
                     <div
                         style={{
@@ -314,23 +313,16 @@ export default function About() {
 
             {/* ── Nos Valeurs (fond blanc) ───────────────────── */}
             <section className="bg-white py-20! text-black">
-                <div className={isDesktop ? 'px-12!' : 'px-5'} style={{ maxWidth: 'var(--container)', margin: '0 auto' }}>
-                    <div className="section-label mb-4!">
-                        <span>NOS VALEURS</span>
+                <div className={isDesktop ? 'px-12!' : 'px-5'} >
+                    <div className="relative flex w-full flex-col-reverse ">
+                        <h2 className="uppercase font-bold text-balance text-4xl lg:text-7xl! block">
+                            Ce qui guide
+                            <em style={{ color: 'var(--color-gold-dark)' }}> chaque geste</em>
+                        </h2>
+                        <span className="w-full rotate-[-2deg] font-serif text-gold font-quickbrush mb-3! xl:-mb-2 text-4xl lg:text-6xl">
+                            Nos valeurs
+                        </span>
                     </div>
-                    <h2
-                        style={{
-                            fontFamily: 'var(--font-serif)',
-                            fontSize: 'clamp(2rem, 4vw, 3.5rem)',
-                            fontWeight: 300,
-                            lineHeight: 1.1,
-                            marginBottom: 'clamp(3rem, 6vw, 5rem)',
-                            color: '#000',
-                        }}
-                    >
-                        Ce qui guide<br />
-                        <em style={{ color: 'var(--color-gold-dark)' }}>chaque geste</em>
-                    </h2>
 
                     <div
                         ref={valuesRef}
@@ -397,10 +389,16 @@ export default function About() {
 
             {/* ── Manifeste (fond noir) ──────────────────────── */}
             <section className="bg-black py-24!" ref={manifestoRef}>
-                <div className="container" style={{ maxWidth: '800px' }}>
-                    <div className="section-label" style={{ justifyContent: 'center', marginBottom: '3rem' }}>
-                        <span>NOTRE MANIFESTE</span>
-                    </div>
+                <div className="relative flex w-full flex-col-reverse text-center mb-3!">
+                    <h2 className="uppercase font-bold text-balance text-4xl lg:text-6xl! block">
+                        Ce qui guide
+                        <em style={{ color: 'var(--color-gold-dark)' }}> chaque geste</em>
+                    </h2>
+                    <span className="w-full rotate-[-2deg] font-serif text-gold font-quickbrush -mb-1! xl:-mb-2 text-4xl lg:text-6xl">
+                        Notre manifeste
+                    </span>
+                </div>
+                <div className="container" style={{ maxWidth: '1000px' }}>
                     <blockquote
                         style={{
                             fontFamily: 'var(--font-serif)',
@@ -446,22 +444,16 @@ export default function About() {
             {/* ── Timeline (fond blanc) ─────────────────────── */}
             <section className="bg-white py-20! text-black">
                 <div className={isDesktop ? 'px-12!' : 'px-5'} style={{ maxWidth: 'var(--container)', margin: '0 auto' }}>
-                    <div className="section-label mb-4!">
-                        <span>NOTRE PARCOURS</span>
+                    <div className="relative flex w-full flex-col-reverse text-center mb-15!">
+                        <h2 className="uppercase font-bold text-balance text-4xl lg:text-6xl! block">
+                            Les étapes d'une
+                            <em style={{ color: 'var(--color-gold-dark)' }}> maison qui grandit</em>
+                        </h2>
+                        <span className="w-full rotate-[-2deg] font-serif text-gold font-quickbrush -mb-1! xl:-mb-2 text-4xl lg:text-5xl">
+                            Notre parcours
+                        </span>
                     </div>
-                    <h2
-                        style={{
-                            fontFamily: 'var(--font-serif)',
-                            fontSize: 'clamp(2rem, 4vw, 3.5rem)',
-                            fontWeight: 300,
-                            lineHeight: 1.1,
-                            marginBottom: 'clamp(3rem, 6vw, 5rem)',
-                            color: '#000',
-                        }}
-                    >
-                        Les étapes d'une<br />
-                        <em style={{ color: 'var(--color-gold-dark)' }}>maison qui grandit</em>
-                    </h2>
+
 
                     <div ref={timelineRef} style={{ position: 'relative' }}>
                         {/* Ligne verticale */}
@@ -549,8 +541,14 @@ export default function About() {
                 }}
             >
                 <div className="container">
-                    <div className="section-label" style={{ justifyContent: 'center', marginBottom: '2rem' }}>
-                        <span>TRAVAILLER AVEC NOUS</span>
+                    <div className="relative flex w-full flex-col-reverse text-center mb-15!">
+                        <h2 className="uppercase font-bold text-balance text-4xl lg:text-6xl! block">
+                            TRAVAILLER AVEC
+                            <em style={{ color: 'var(--color-gold-dark)' }}> NOUS</em>
+                        </h2>
+                        <span className="w-full rotate-[-2deg] font-serif text-gold font-quickbrush -mb-1! xl:-mb-2 text-4xl lg:text-5xl">
+                            Rejoignez l'aventure
+                        </span>
                     </div>
                     <h2
                         style={{

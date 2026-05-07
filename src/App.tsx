@@ -13,6 +13,8 @@ import Footer from "./components/layout/Footer.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import Tenues from "./pages/Tenues.tsx";
 import Confections from "./pages/Confections.tsx";
+import NaruGoor from "./pages/NaruGoor.tsx";
+import FloatingContact from "./components/atoms/FloatingContact.tsx";
 //import Footer from "./components/layout/Footer";
 //import Menu from "./pages/Menu";
 //import Order from "./pages/Order";
@@ -54,10 +56,12 @@ function AppContent() {
           <Route path="/about" element={<About />} />
           <Route path="/events" element={<Evenements />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/naru-goor" element={<NaruGoor />} />
 
-          <Route path="*" element={<NotFound /> }/>
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
+        <FloatingContact />
       </main>
     </div>
   );

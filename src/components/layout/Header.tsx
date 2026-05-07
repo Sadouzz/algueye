@@ -99,7 +99,7 @@ export default function Header() {
                 <div className="flex flex-1 h-full items-center justify-end border-l border-black bg-white">
                     <HeaderLink to="/confections" label="Confections" />
                     <HeaderLink to="/collections" label="Collections" />
-                    <HeaderLink to="/contact" label="Contact" />
+                    <HeaderLink to="/naru-goor" label="Naru Goor" />
                 </div>
 
             </nav>

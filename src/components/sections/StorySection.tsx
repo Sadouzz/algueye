@@ -67,10 +67,14 @@ export default function StorySection() {
 
           {/* Texte droit */}
           <div ref={textRef}>
-            <div className="section-label" style={{ marginBottom: '1.5rem' }}>Notre Histoire</div>
-            <h2 className="section-title" style={{ marginBottom: '2rem' }}>
-              Une vision<br /><em style={{ color: 'var(--gold)' }}>née à Dakar</em>
-            </h2>
+            <div className="relative flex w-full flex-col-reverse ">
+              <h2 className="uppercase font-bold text-balance text-4xl lg:text-7xl! block">
+                UNE VISION
+              </h2>
+              <span className="w-full rotate-[-2deg] font-serif text-gold font-quickbrush -mb-2 xl:-mb-4 text-4xl lg:text-6xl">
+                Notre Histoire
+              </span>
+            </div>
             <div style={{ height: '1px', background: 'var(--border)', marginBottom: '2rem', width: '60px' }} />
             <p style={{ fontFamily: 'var(--font-sans)', fontSize: '1rem', color: 'rgba(255,255,255,0.75)', lineHeight: 1.9, marginBottom: '1.5rem' }}>
               Algueye est une maison de mode de luxe fondée à Dakar. Chaque pièce est conçue pour révéler l'élégance africaine dans toute sa puissance, de la Médina aux capitales du monde.

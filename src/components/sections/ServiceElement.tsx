@@ -201,9 +201,9 @@ const ServiceElement: React.FC<ServiceElementProps> = ({
                     >
                         {/* Bootstrap: col-12 ps-0 col-md-6 → Tailwind: w-full md:w-1/2 pl-0 */}
                         <div className="w-full md:w-1/2 pl-0">
-                            <small className="tag rounded text-xs uppercase tracking-widest font-[Raleway]">
+                            <span className=" rotate-[-2deg] font-serif text-gold font-quickbrush mb-4! xl:-mb-4 text-4xl lg:text-3xl">
                                 {subtitle}
-                            </small>
+                            </span>
                             <h1 className="mt-3 mb-0 text-4xl font-bold">
                                 <span className="font-[Poppins] text-gold">{"- "}</span>
                                 {title}

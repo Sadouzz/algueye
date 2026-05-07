@@ -404,8 +404,14 @@ export default function Evenements() {
             {EVENTS.filter(e => e.featured && e.status === 'À venir').length > 0 && (
                 <section className="bg-black py-20!" ref={featuredRef}>
                     <div className={`container`}>
-                        <div className="section-label" style={{ marginBottom: '3rem' }}>
-                            <span>ÉVÉNEMENT PHARE</span>
+                        <div className="relative flex w-full flex-col-reverse ">
+                            <h2 className="uppercase font-bold text-balance text-4xl lg:text-7xl! block">
+                                Événement
+                                <em style={{ color: 'var(--color-gold-dark)' }}> phare</em>
+                            </h2>
+                            <span className="w-full rotate-[-2deg] font-serif text-gold font-quickbrush mb-3! xl:-mb-4 text-4xl lg:text-6xl">
+                                Showcase
+                            </span>
                         </div>
 
                         {EVENTS.filter(e => e.featured && e.status === 'À venir').slice(0, 1).map(event => (
@@ -572,8 +578,14 @@ export default function Evenements() {
                     {/* Événements À venir */}
                     {upcoming.length > 0 && (
                         <div ref={listRef} style={{ marginBottom: '5rem' }}>
-                            <div className="section-label" style={{ marginBottom: '2rem' }}>
-                                <span>À VENIR</span>
+                            <div className="relative flex w-full flex-col-reverse ">
+                                <h2 className="uppercase font-bold text-balance text-4xl lg:text-7xl! block">
+                                    Événements
+                                    <em style={{ color: 'var(--color-gold-dark)' }}> À venir</em>
+                                </h2>
+                                <span className="w-full rotate-[-2deg] font-serif text-gold font-quickbrush mb-3! xl:-mb-4 text-4xl lg:text-6xl">
+                                    Upcoming
+                                </span>
                             </div>
                             {upcoming.map(event => (
                                 <div key={event.id} className="event-row">
@@ -586,8 +598,14 @@ export default function Evenements() {
                     {/* Événements Passés */}
                     {past.length > 0 && (
                         <div>
-                            <div className="section-label" style={{ marginBottom: '2rem' }}>
-                                <span>ÉVÉNEMENTS PASSÉS</span>
+                            <div className="relative flex w-full flex-col-reverse ">
+                                <h2 className="uppercase font-bold text-balance text-4xl lg:text-7xl! block">
+                                    Événements
+                                    <em style={{ color: 'var(--color-gold-dark)' }}> Passés</em>
+                                </h2>
+                                <span className="w-full rotate-[-2deg] font-serif text-gold font-quickbrush mb-3! xl:-mb-4 text-4xl lg:text-6xl">
+                                    Past showcase
+                                </span>
                             </div>
                             {past.map(event => (
                                 <div key={event.id} className="event-row">
@@ -623,9 +641,15 @@ export default function Evenements() {
                     borderTop: '1px solid rgba(201,168,76,0.2)',
                 }}
             >
-                <div className="container" style={{ maxWidth: '640px' }}>
-                    <div className="section-label" style={{ justifyContent: 'center', marginBottom: '2rem' }}>
-                        <span>RESTER INFORMÉ</span>
+                <div className="container" style={{ maxWidth: '1440px' }}>
+                    <div className="relative flex w-full flex-col-reverse ">
+                        <h2 className="uppercase font-bold text-balance text-4xl lg:text-7xl! block">
+                            Restez informés des
+                            <em style={{ color: 'var(--color-gold-dark)' }}> nouveaux évènements</em>
+                        </h2>
+                        <span className="w-full rotate-[-2deg] font-serif text-gold font-quickbrush mb-3! xl:-mb-4 text-4xl lg:text-6xl">
+                            Newsletter
+                        </span>
                     </div>
                     <h2
                         style={{

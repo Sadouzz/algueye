@@ -74,11 +74,19 @@ const Testimonials: React.FC = () => {
         <div className="bg-white testimonial-wrapper" data-section="template--18773151187141__testimonial_HGhyBK" data-block-size="6">
             <div className="container-fluid mx-10!">
                 {/* Section Header */}
-                <div className="pt-5! px" style={{  marginBottom: '2rem' }}>
-                    <div className="section-label " style={{  marginBottom: '1rem' }}>
+                <div className="px pt-5!" style={{  marginBottom: '2rem' }}>
+                    <div className="relative flex w-full flex-col-reverse ">
+                        <h2 className="uppercase font-bold text-black text-balance text-7xl lg:text-8xl block">
+                            Témoignages
+                        </h2>
+                        <span className="w-full rotate-[-2deg] font-serif text-gold font-quickbrush mb-2! xl:mb-4! text-4xl lg:text-6xl">
+                            De nos clients
+                        </span>
+                    </div>
+                    {/* <div className="section-label " style={{  marginBottom: '1rem' }}>
                         <span className='uppercase'>Découvrez</span>
                     </div>
-                    <h2 className="text-black text-3xl" style={{ marginBottom: '0' }}>Les témoignages de nos clients</h2>
+                    <h2 className="text-black text-3xl" style={{ marginBottom: '0' }}>Les témoignages de nos clients</h2> */}
                 </div>
                 
 

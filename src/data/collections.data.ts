@@ -1,8 +1,8 @@
 // servicesData.js
-import a7 from "../assets/tenues/A7.jpg";
-import a8 from "../assets/tenues/A8.jpg";
-import a9 from "../assets/tenues/A9.jpg";
-import b1 from "../assets/tenues/B1.jpg";
+import a7 from "../assets/tenues/A7.jpeg";
+import a8 from "../assets/tenues/A8.jpeg";
+import a9 from "../assets/tenues/A9.jpeg";
+import b1 from "../assets/tenues/B1.jpeg";
 import { tenues } from "./tenues.data.ts";
 
 export const collections = [
@@ -26,10 +26,9 @@ export const collections = [
         miniTitleWithBar: "PIÈCES PHARES HAUTE COUTURE",
         img: a7,
         projects: [
-            tenues[0],
-            tenues[0],
-            tenues[0],
-            tenues[0],
+            tenues[0], // tenue-hc-1
+            tenues[1], // tenue-hc-2
+            tenues[2], // tenue-hc-3
         ],
     },
 
@@ -49,15 +48,13 @@ export const collections = [
             "Confort absolu",
         ],
         miniTitleWithBar: "SÉLECTION PRÊT-À-PORTER",
-        // projects: [
-        //     projectsData[4],
-        //     projectsData[5],
-        //     projectsData[3],
-        // ],
         img: a8,
-        // projects: [
-        //     projectsData[5]
-        // ],
+        projects: [
+            tenues[3], // tenue-pap-1
+            tenues[4], // tenue-pap-2
+            tenues[5], // tenue-pap-3
+            tenues[6], // tenue-pap-4
+        ],
     },
 
     {
@@ -77,7 +74,10 @@ export const collections = [
         ],
         miniTitleWithBar: "CRÉATIONS MAROQUINERIE",
         img: a9,
-        projects: [],
+        projects: [
+            tenues[9], // tenue-maroq-1
+            tenues[10], // tenue-maroq-2
+        ],
     },
 
     {
@@ -98,14 +98,9 @@ export const collections = [
         ],
         miniTitleWithBar: "CRÉATIONS DE SOIRÉE",
         img: b1,
-        // projects: [
-        //     projectsData[1],
-        //     projectsData[2],
-        //     projectsData[3],
-        //     // projectsData[3],
-        //     // projectsData[4],
-        //     // projectsData[6],
-        //     // projectsData[7],
-        // ],
+        projects: [
+            tenues[7], // tenue-soiree-1
+            tenues[8], // tenue-soiree-2
+        ],
     },
 ];

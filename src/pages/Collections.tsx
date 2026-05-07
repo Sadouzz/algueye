@@ -23,7 +23,7 @@ export default function Collections() {
                 firstTitle="De l'esquisse à la création d'exception,"
                 secondTitle="Nous donnons vie aux étoffes en leur insufflant élégance et caractère."
             />
-            <section className="bg-white section-trigger py-4 text-black">
+            <section className="bg-white section-trigger text-black ">
                 <div className={`${isDesktop ? "" : "p-5"}`}>
                     <div className="my-12 px-12! ">
                         <div>
@@ -33,12 +33,18 @@ export default function Collections() {
                         </div>
 
                         <div className="w-full">
-                            <div className="flex flex-wrap justify-between items-end relative">
+                            <div className="flex flex-wrap justify-between items-end relative pb-10!">
 
                                 {isDesktop && (
-                                    <div className="section-label mt-4 mb-4!">
-                                        <span>NOTRE EXPERTISE</span>
-                                    </div>
+                                    
+                                        <div className="relative flex  flex-col-reverse ">
+                                            <h2 className="uppercase font-bold text-black text-balance text-4xl lg:text-5xl block">
+                                                L'art de façonner le sur-mesure.
+                                            </h2>
+                                            <span className=" rotate-[-2deg] font-serif text-gold font-quickbrush mb-4! xl:-mb-4 text-4xl lg:text-3xl">
+                                                Notre expertise
+                                            </span>
+                                        </div>
                                 )}
 
                                 <div className="w-full md:w-1/2 p-0 flex flex-col">
@@ -50,7 +56,7 @@ export default function Collections() {
                                         </h4>
                                     </div>
                                     <div className="raleway">
-                                        <p className="split m-0 max-w-[600px]">
+                                        <p className="split m-0 max-w-[600px] ">
                                             Nous concevons et confectionnons des pièces uniques pour transformer une vision en une véritable œuvre d'art à porter. Le choix des matières et la précision des coupes sont les instruments d'une histoire que nous tissons. À travers l'exigence de l'artisanat et le souci du détail, nous façonnons des créations qui subliment la silhouette et célèbrent l'élégance pure.
                                         </p>
                                     </div>

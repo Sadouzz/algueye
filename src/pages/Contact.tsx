@@ -88,23 +88,12 @@ export default function Contact() {
                     >
                         {/* ── Colonne Gauche : Informations ── */}
                         <div ref={infoRef}>
-                            <div className="section-label mb-4!">
-                                <span>NOTRE ATELIER</span>
+                            <div className="relative flex w-full flex-col-reverse pt-15! mb-3! ">
+                                <h2 className="uppercase font-bold text-black text-balance text-5xl lg:text-6xl block">
+                                    L'artisanat prend vie
+                                    <em style={{ color: 'var(--color-gold-dark)' }}> au cœur de Dakar.</em>
+                                </h2>
                             </div>
-                            <h2
-                                style={{
-                                    fontFamily: 'var(--font-serif)',
-                                    fontSize: 'clamp(2rem, 4vw, 3.2rem)',
-                                    fontWeight: 300,
-                                    lineHeight: 1.1,
-                                    marginBottom: '3rem',
-                                    color: '#000',
-                                }}
-                            >
-                                L'artisanat prend vie<br />
-                                <em style={{ color: 'var(--color-gold-dark)' }}>au cœur de Dakar.</em>
-                            </h2>
-
                             <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
                                 {/* Info Item 1 */}
                                 <div className="info-item">

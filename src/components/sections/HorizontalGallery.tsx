@@ -4,9 +4,9 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MonitorPlay, Trophy, Gamepad } from 'lucide-react';
 
-import a7 from "../../assets/tenues/A7.jpg";
-import a8 from "../../assets/tenues/A8.jpg";
-import a9 from "../../assets/tenues/A9.jpg";
+import a7 from "../../assets/tenues/A7.jpeg";
+import a8 from "../../assets/tenues/A8.jpeg";
+import a9 from "../../assets/tenues/A9.jpeg";
 // import b1 from "../../assets/tenues/b1.jpg";
 // import b2 from "../../assets/tenues/b2.jpg";
 // import b3 from "../../assets/tenues/b3.jpg";
@@ -114,12 +114,20 @@ export const HorizontalGallery = () => {
       <div ref={scrollContainerRef} className="h-full flex flex-nowrap items-center w-max px-[10vw]">
 
         <div className="w-[40vw] shrink-0 pr-20! mx-20!">
-          <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-gold-dark">
+          {/* <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-gold-dark">
             évènements<br />
             <span className="text-transparent [-webkit-text-stroke:1px_var(--color-gold)]">en vedette</span>
-          </h2>
-          <p className="mt-8 text-black max-w-sm text-lg">
-            Découvrez nos évènements phares.
+          </h2> */}
+          <div className="relative flex  flex-col-reverse ">
+            <h2 className="uppercase font-bold text-black text-balance text-7xl lg:text-8xl block">
+              Nos évènements
+            </h2>
+            <span className="w-full rotate-[-2deg] font-serif text-gold font-quickbrush -mb-2 xl:-mb-4 text-4xl lg:text-6xl">
+              En Vedette
+            </span>
+          </div>
+          <p className="text-black  -mb-2 xl:-mb-4 text-lg lg:text-xl">
+            Découvrez nos dernières collections et nos évènements exclusifs. Plongez dans l'univers d'<em style={{ color: 'var(--color-gold)' }}>Algueye Dakar</em> et laissez-vous inspirer par nos créations uniques.
           </p>
         </div>
 
