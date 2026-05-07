@@ -78,7 +78,7 @@ export const HorizontalGallery = () => {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="min-h-screen  md:h-screen bg-white overflow-hidden relative mx-4 md:mx-10! py-10 md:py-0">
+    <section ref={containerRef} className="min-h-screen  md:h-screen bg-white overflow-hidden relative px-10! md:px-0! py-10 md:py-0">
       {/* Decorative background grid */}
       <div className="absolute inset-0 pointer-events-none opacity-10 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:40px_40px]" />
 
