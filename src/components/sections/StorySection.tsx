@@ -40,8 +40,8 @@ export default function StorySection() {
 
   return (
     <section ref={sectionRef} className="py-20! bg-black" style={{ overflow: 'hidden' }}>
-      <div className="container">
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'clamp(3rem, 6vw, 6rem)', alignItems: 'center' }}>
+      <div className="container px-4 md:px-8 mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-[clamp(3rem,6vw,6rem)]">
 
           {/* Image gauche */}
           <div ref={imgRef} style={{ position: 'relative', aspectRatio: '4/5', overflow: 'hidden' }}>
@@ -65,13 +65,12 @@ export default function StorySection() {
             <div style={{ position: 'absolute', top: '1rem', left: '1rem', right: '1rem', bottom: '1rem', border: '1px solid rgba(201,168,76,0.25)', pointerEvents: 'none' }} />
           </div>
 
-          {/* Texte droit */}
-          <div ref={textRef}>
+          <div ref={textRef} className="mt-8 lg:mt-0">
             <div className="relative flex w-full flex-col-reverse ">
-              <h2 className="uppercase font-bold text-balance text-4xl lg:text-7xl! block">
+              <h2 className="uppercase font-bold text-balance text-3xl md:text-5xl lg:text-7xl! block">
                 UNE VISION
               </h2>
-              <span className="w-full rotate-[-2deg] font-serif text-gold font-quickbrush -mb-2 xl:-mb-4 text-4xl lg:text-6xl">
+              <span className="w-full rotate-[-2deg] font-serif text-gold font-quickbrush -mb-1 md:-mb-2 xl:-mb-4 text-3xl md:text-4xl lg:text-6xl">
                 Notre Histoire
               </span>
             </div>
@@ -82,7 +81,7 @@ export default function StorySection() {
             <p style={{ fontFamily: 'var(--font-sans)', fontSize: '1rem', color: 'rgba(255,255,255,0.75)', lineHeight: 1.9, marginBottom: '2.5rem' }}>
               Nos vêtements permettent d’exprimer son propre style tout en répondant aux besoins quotidiens, alliant dernières tendances et intemporalité pour créer un look unique, chic et glamour, pour toute occasion.
             </p>
-            <div style={{ display: 'flex', gap: '3rem', marginBottom: '2.5rem' }}>
+            <div className="flex flex-wrap gap-6 md:gap-12 mb-10">
               {[['2012', 'Fondation'], ['100+', 'Créations'], ['30+', 'Pays']].map(([num, lbl]) => (
                 <div key={lbl}>
                   <p style={{ fontFamily: 'var(--font-serif)', fontSize: '2.5rem', fontWeight: 300, color: 'var(--gold)', lineHeight: 1 }}>{num}</p>

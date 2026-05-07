@@ -72,14 +72,14 @@ const testimonialsData: Testimonial[] = [
 const Testimonials: React.FC = () => {
     return (
         <div className="bg-white testimonial-wrapper" data-section="template--18773151187141__testimonial_HGhyBK" data-block-size="6">
-            <div className="container-fluid mx-10!">
+            <div className="container-fluid px-4 md:mx-10!">
                 {/* Section Header */}
                 <div className="px pt-5!" style={{  marginBottom: '2rem' }}>
                     <div className="relative flex w-full flex-col-reverse ">
-                        <h2 className="uppercase font-bold text-black text-balance text-7xl lg:text-8xl block">
+                        <h2 className="uppercase font-bold text-black text-balance text-4xl md:text-6xl lg:text-8xl block">
                             Témoignages
                         </h2>
-                        <span className="w-full rotate-[-2deg] font-serif text-gold font-quickbrush mb-2! xl:mb-4! text-4xl lg:text-6xl">
+                        <span className="w-full rotate-[-2deg] font-serif text-gold font-quickbrush mb-1 md:mb-2! xl:mb-4! text-3xl md:text-5xl lg:text-6xl">
                             De nos clients
                         </span>
                     </div>
