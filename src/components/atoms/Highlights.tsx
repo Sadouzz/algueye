@@ -46,11 +46,11 @@ const FeatureBlock: React.FC<FeatureBlockProps> = ({
 
                     {/* Titre et Accent */}
                     <div className="relative flex w-full flex-col-reverse mt-4 items-center">
-                        <h2 className="text-balance uppercase font-black tracking-tighter text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-center leading-[0.9]">
+                        <h2 className="text-balance uppercase text-black font-black tracking-tighter text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-center leading-[0.9]">
                             {title}
                         </h2>
                         {/* Texte d'accentuation (style manuscrit/italique) */}
-                        <span className="block w-full rotate-[-2deg] text-center text-primary font-serif italic mb-2 lg:-mb-4 text-4xl lg:text-5xl">
+                        <span className="block w-full  rotate-[-2deg] text-center text-gold font-serif italic mb-2 lg:-mb-4 text-4xl lg:text-5xl">
                             {accentText}
                         </span>
                     </div>
@@ -67,7 +67,7 @@ const FeatureBlock: React.FC<FeatureBlockProps> = ({
                                 href={btn.href}
                                 className={`text-base font-medium whitespace-nowrap px-8! py-3! flex items-center justify-center border border-black transition-colors duration-300 mb-5! ${btn.primary
                                         ? 'bg-gold text-white hover:bg-white hover:text-black'
-                                        : 'bg-white text-black hover:bg-gray-100'
+                                        : 'bg-white text-black! hover:bg-gray-100'
                                     }`}
                             >
                                 {btn.label}
