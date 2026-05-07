@@ -7,6 +7,7 @@ import { MonitorPlay, Trophy, Gamepad } from 'lucide-react';
 import a7 from "../../assets/tenues/A7.jpeg";
 import a8 from "../../assets/tenues/A8.jpeg";
 import a9 from "../../assets/tenues/A9.jpeg";
+import { Link } from 'react-router-dom';
 // import b1 from "../../assets/tenues/b1.jpg";
 // import b2 from "../../assets/tenues/b2.jpg";
 // import b3 from "../../assets/tenues/b3.jpg";
@@ -126,9 +127,15 @@ export const HorizontalGallery = () => {
               En Vedette
             </span>
           </div>
-          <p className="text-black  -mb-2 xl:-mb-4 text-lg lg:text-xl">
+          <p className="text-black  mb-2! xl:mb-4! text-lg lg:text-xl">
             Découvrez nos dernières collections et nos évènements exclusifs. Plongez dans l'univers d'<em style={{ color: 'var(--color-gold)' }}>Algueye Dakar</em> et laissez-vous inspirer par nos créations uniques.
           </p>
+          <Link to="/naru-goor" className="btn-gold self-start">
+            <span>Tous les évènements</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </Link>
         </div>
 
         {zones.map((zone) => (

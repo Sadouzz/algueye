@@ -120,7 +120,6 @@ export default function Contact() {
                                         }}
                                     >
                                         Atelier Algueye Dakar<br />
-                                        Quartier Médina<br />
                                         Dakar, Sénégal
                                     </p>
                                 </div>

@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/imgHeroHome.png';
+import Ticker from '../atoms/Ticker';
 
 export default function Footer() {
     const footerRef = useRef<HTMLElement>(null);
@@ -72,7 +73,10 @@ export default function Footer() {
     const navLinks = [
         { to: '/', label: 'Accueil' },
         { to: '/about', label: 'Notre Maison' },
+        { to: '/confections', label: 'Confections' },
         { to: '/collections', label: 'Collections' },
+        { to: '/tenues', label: 'Tenues' },
+        { to: '/naru-goor', label: 'Naru Goor' },
         { to: '/events', label: 'Événements' },
         { to: '/contact', label: 'Contact' },
     ];
@@ -83,71 +87,13 @@ export default function Footer() {
         { href: 'https://www.facebook.com/', label: 'Facebook' },
     ];
 
-    const marqueeItems = [
-        'HAUTE COUTURE', 'SUR-MESURE', 'ÉLÉGANCE', 'ARTISANAT',
-        'DAKAR', 'STYLE', 'RETOUCHES', 'LUXE AFRICAIN',
-    ];
-
     return (
         <footer
             ref={footerRef}
             style={{ fontFamily: "'DM Sans', sans-serif", overflow: 'hidden', position: 'relative' }}
             className="relative bg-black text-white"
         >
-            {/* ── Marquee ─────────────────────────────────────── */}
-            <div
-                style={{
-                    overflow: 'hidden',
-                    borderBottom: '1px solid rgba(201,168,76,0.15)',
-                    padding: '1.25rem 0',
-                }}
-                aria-hidden="true"
-            >
-                <div
-                    ref={marqueeRef}
-                    style={{ display: 'flex', gap: 0, whiteSpace: 'nowrap', willChange: 'transform' }}
-                >
-                    {[...marqueeItems, ...marqueeItems].map((item, i) => (
-                        <span
-                            key={i}
-                            style={{
-                                flexShrink: 0,
-                                padding: '0 2rem',
-                                fontSize: 'clamp(0.85rem, 2vw, 1.2rem)',
-                                letterSpacing: '0.18em',
-                                color: 'rgba(201,168,76,0.35)',
-                                textTransform: 'uppercase',
-                                transition: 'color 0.3s',
-                                fontFamily: "'DM Sans', sans-serif",
-                                fontWeight: 300,
-                            }}
-                        >
-                            {item}
-                            <span
-                                style={{
-                                    marginLeft: '2rem',
-                                    verticalAlign: 'middle',
-                                    fontSize: '0.5em',
-                                    color: 'var(--color-gold)',
-                                }}
-                            >
-                                ●
-                            </span>
-                        </span>
-                    ))}
-                </div>
-            </div>
-
-            {/* ── Divider ─────────────────────────────────────── */}
-            <div
-                ref={lineRef}
-                style={{
-                    height: '1px',
-                    background: 'rgba(201,168,76,0.2)',
-                    margin: '0 3rem',
-                    transformOrigin: 'left center',
-                }}
-            />
+            <Ticker></Ticker>
 
             {/* ── Main Grid ───────────────────────────────────── */}
             <div style={{ padding: 'clamp(3.5rem, 8vw, 5rem) clamp(1.5rem, 5vw, 3rem) clamp(3rem, 6vw, 4rem)' }}>
@@ -356,7 +302,7 @@ export default function Footer() {
                                     margin: 0,
                                 }}
                             >
-                                Médina, Dakar<br />
+                                Dakar<br />
                                 Sénégal
                             </p>
                         </div>

@@ -33,7 +33,7 @@ const VALUES = [
 const TIMELINE = [
     { year: '2012', event: 'Fondation de la marque ALGUEYE par Abdou Lahad GUEYE.' },
     { year: '2019', event: 'Première collection capsule présentée à la FESPAD.' },
-    { year: '2020', event: 'Ouverture du studio sur mesure, Médina, Dakar.' },
+    { year: '2020', event: 'Ouverture du studio sur mesure, Dakar.' },
     { year: '2021', event: 'Participation à la semaine de la mode de Dakar.' },
     { year: '2022', event: 'Collaboration internationale — partenariat Paris & Lagos.' },
     { year: '2023', event: 'Lancement de la ligne Prêt-à-Porter « Silhouettes ».' },
