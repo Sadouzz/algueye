@@ -46,7 +46,7 @@ export default function Header() {
                     {/* Desktop: logo centré */}
                     <NavLink
                         to="/"
-                        className="group hidden lg:flex h-full w-[250px] md:w-[350px] lg:w-[500px] shrink-0 flex-col items-center justify-center overflow-hidden bg-white cursor-pointer relative mx-auto lg:mx-0 border-r border-black lg:border-r-0 lg:border-l-0 border-l"
+                        className="group lg:flex h-full w-[250px] md:w-[350px] lg:w-[500px] shrink-0 flex-col items-center justify-center overflow-hidden bg-white cursor-pointer relative mx-auto lg:mx-0 border-r border-black lg:border-r-0 lg:border-l-0 border-l"
                     >
                         <div
                             className="flex items-center justify-center transition-transform duration-500 group-hover:-translate-y-[250%]"

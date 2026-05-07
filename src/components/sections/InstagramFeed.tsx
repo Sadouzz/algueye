@@ -12,7 +12,7 @@ export default function InstagramFeed() {
         <section className="bg-white py-24!">
             <div className="  px-6! md:px-12! mb-12 flex flex-col md:flex-row justify-between items-end gap-6">
                 <div className="relative flex w-full flex-col-reverse pt-5!">
-                    <h2 className="uppercase font-bold text-black text-balance text-7xl lg:text-8xl block">
+                    <h2 className="uppercase font-bold text-black text-balance text-5xl lg:text-8xl block">
                         Notre <em className="text-[color:var(--color-gold)]">Atelier</em>
                     </h2>
                     <span className="w-full rotate-[-2deg] font-serif text-gold font-quickbrush -mb-2 xl:-mb-4 text-4xl lg:text-6xl">

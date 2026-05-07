@@ -25,7 +25,7 @@ export default function Home() {
             <StorySection></StorySection>
             <div className="bg-white">
                 <div className="relative flex w-full flex-col-reverse pt-15! text-center">
-                    <h2 className="uppercase font-bold text-black text-balance text-7xl lg:text-8xl block">
+                    <h2 className="uppercase font-bold text-black text-balance text-4xl lg:text-8xl block">
                         SOPHISTIQUÉES. RAFFINÉES.<em style={{ color: 'var(--color-gold)' }}> INTEMPORELLES.</em>
                     </h2>
                     <span className="w-full rotate-[-2deg] font-serif text-center text-gold font-quickbrush -mb-2 xl:-mb-4 text-4xl lg:text-6xl">
@@ -76,7 +76,7 @@ export default function Home() {
                 <div className="w-full md:w-1/2 flex flex-col justify-center px-10! md:px-20! text-white">
                     <span className="text-[var(--color-gold)] tracking-[0.4em] text-xs uppercase font-bold">Sous-marque exclusive</span>
                     <div className="relative flex w-full flex-col-reverse pt-5! ">
-                        <h2 className="uppercase font-bold text-balance text-7xl lg:text-8xl block">
+                        <h2 className="uppercase font-bold text-balance text-4xl lg:text-8xl block">
                             Naru <em className="not-italic" style={{ color: 'var(--color-gold)' }}>Goor</em>
                         </h2>
                         <span className="w-full rotate-[-2deg] font-serif  text-gold font-quickbrush -mb-2 xl:-mb-4 text-4xl lg:text-6xl">
@@ -88,7 +88,7 @@ export default function Home() {
                         Naru Goor est la collection exclusive d'ALGUEYE dédiée à l'homme moderne. Des créations qui allient le charisme africain à une coupe contemporaine.
                     </p>
 
-                    <Link to="/naru-goor" className="btn-gold self-start">
+                    <Link to="/naru-goor" className="btn-gold self-start mb-3!">
                         <span>Explorer Naru Goor</span>
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                             <path d="M5 12h14M12 5l7 7-7 7" />

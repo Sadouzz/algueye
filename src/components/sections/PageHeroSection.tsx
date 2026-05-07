@@ -33,7 +33,7 @@ export default function PageHeroSection({
                     </div>
 
                     {/* Titre principal */}
-                    <h1 className="font-extrabold text-8xl text-gold-dark md:text-6xl! mb-15! max-w-[700px]">
+                    <h1 className="font-extrabold text-5xl text-gold-dark md:text-6xl! mb-15! max-w-[700px]">
                         {firstTitle}
                     </h1>
 

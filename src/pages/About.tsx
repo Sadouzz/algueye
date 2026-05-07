@@ -136,7 +136,7 @@ export default function About() {
             />
 
             {/* ── Section Histoire (fond blanc, layout 2 col) ── */}
-            <section className="bg-white section-trigger py-0! text-black">
+            <section className="bg-white section-trigger py-0! px-10! lg:px-0! text-black">
 
                 <div className={`${isDesktop ? 'px-12!' : 'px-5'} py-20!`}>
                     <div className="relative flex w-full flex-col-reverse ">
@@ -312,7 +312,7 @@ export default function About() {
             </section>
 
             {/* ── Nos Valeurs (fond blanc) ───────────────────── */}
-            <section className="bg-white py-20! text-black">
+            <section className="bg-white py-20! text-black px-10! lg:px-0!">
                 <div className={isDesktop ? 'px-12!' : 'px-5'} >
                     <div className="relative flex w-full flex-col-reverse ">
                         <h2 className="uppercase font-bold text-balance text-4xl lg:text-7xl! block">

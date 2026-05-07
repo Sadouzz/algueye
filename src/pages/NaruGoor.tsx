@@ -43,7 +43,7 @@ export default function NaruGoor() {
                         </span>
                     </div>
 
-                    <h1 className="text-white text-7xl md:text-[10rem] font-extrabold uppercase leading-[0.9] tracking-tight mb-6">
+                    <h1 className="text-white text-5xl md:text-[10rem] font-extrabold uppercase leading-[0.9] tracking-tight mb-6">
                         Naru<br /><em className="not-italic" style={{ color: 'var(--color-gold)' }}>Goor</em>
                     </h1>
                     <p className="text-gray-300 max-w-lg text-lg md:text-xl font-light leading-relaxed mb-10!">
@@ -62,7 +62,7 @@ export default function NaruGoor() {
             <div className="bg-black text-white py-20! md:py-32! px-8 md:px-20!">
                 <div className="mx-15! flex justify-center items-center flex-col">
                     <div className="relative flex text-center w-full flex-col-reverse pt-5! mb-8!">
-                        <h2 className="uppercase font-bold text-balance text-7xl lg:text-8xl block">
+                        <h2 className="uppercase font-bold text-balance text-4xl lg:text-8xl block">
                             L'homme <em style={{ color: 'var(--color-gold)' }}>Naru Goor</em>
                         </h2>
                         <span className="w-full rotate-[-2deg] font-serif  text-gold font-quickbrush -mb-2 xl:-mb-4 text-4xl lg:text-6xl">
@@ -115,7 +115,7 @@ export default function NaruGoor() {
                     <div className="">
                         <div className="flex justify-center items-center mb-14">
                             <div className="relative flex w-full flex-col-reverse pt-5! text-center">
-                                <h2 className="uppercase font-bold text-black text-balance text-7xl lg:text-8xl block">
+                                <h2 className="uppercase font-bold text-black text-balance text-4xl lg:text-8xl block">
                                     La <em style={{ color: 'var(--color-gold)' }}> Collection.</em>
                                 </h2>
                                 <span className="w-full rotate-[-2deg] font-serif text-center text-gold font-quickbrush -mb-2 xl:-mb-4 text-4xl lg:text-6xl">
@@ -153,7 +153,7 @@ export default function NaruGoor() {
                 </div>
                 <div className="w-full md:w-1/2 bg-black text-white flex flex-col justify-center px-10! md:px-16! py-16">
                     <div className="relative flex w-full flex-col-reverse pt-5!">
-                        <h2 className="uppercase font-bold  text-balance text-7xl lg:text-8xl block">
+                        <h2 className="uppercase font-bold  text-balance text-4xl lg:text-8xl block">
                             Votre tenue,<br /><em style={{ color: 'var(--color-gold)' }}> votre identité.</em>
                         </h2>
                         <span className="w-full rotate-[-2deg] font-serif text-gold font-quickbrush -mb-2 xl:-mb-4 text-4xl lg:text-6xl">

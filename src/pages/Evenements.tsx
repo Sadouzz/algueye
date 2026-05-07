@@ -412,7 +412,7 @@ export default function Evenements() {
             )}
 
             {/* ── Liste des événements (fond blanc) ─────────── */}
-            <section className="bg-white py-20! text-black">
+            <section className="bg-white py-20! text-black px-10! lg:px-0!">
                 <div className={isDesktop ? 'px-12!' : 'px-5'} style={{ maxWidth: 'var(--container)', margin: '0 auto' }}>
 
                     {/* Filtres par catégorie */}

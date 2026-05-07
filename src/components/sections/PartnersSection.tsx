@@ -48,10 +48,10 @@ export default function PartnersSection() {
     return (
         <section className="bg-black py-24! text-white border-t border-b border-gray-900 overflow-hidden">
             <div className="relative flex w-full flex-col-reverse text-center">
-                <h2 className="uppercase font-bold text-balance text-7xl lg:text-8xl block">
+                <h2 className="uppercase font-bold text-balance text-5xl lg:text-8xl block">
                     Ils nous font <em style={{ color: 'var(--color-gold)' }}>confiance.</em>
                 </h2>
-                <span className="w-full rotate-[-2deg] font-serif text-center text-gold font-quickbrush -mb-2 xl:-mb-4 text-4xl lg:text-6xl">
+                <span className="w-full rotate-[-2deg] font-serif text-center text-gold font-quickbrush -mb-2 xl:-mb-4 text-xl lg:text-6xl">
                     Nos Partenaires
                 </span>
             </div>

@@ -183,7 +183,7 @@ const MenuSection = () => (
         <div className="relative flex w-full flex-1 flex-col items-center justify-center text-center">
             <div className="relative flex w-full flex-col items-center">
                 <div className="relative flex w-full flex-col-reverse">
-                    <h2 className="uppercase font-bold text-balance text-7xl lg:text-8xl block">
+                    <h2 className="uppercase font-bold text-balance text-4xl lg:text-8xl block">
                         SOPHISTIQUÉES. RAFFINÉES.
                         <em style={{ color: 'var(--color-gold)' }}> INTEMPORELLES.</em> 
                     </h2>

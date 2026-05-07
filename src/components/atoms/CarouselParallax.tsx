@@ -319,7 +319,7 @@ const CarouselParallax: React.FC<CarouselParallaxProps> = ({ projects = [] }) =>
                     </Link>
                 </div>
 
-                <div style={styles.actions} className='mb-15!'>
+                <div style={styles.actions} className='pb-15!'>
                     <div style={styles.carouselActions}>
                         <button
                             className='cursor-target'

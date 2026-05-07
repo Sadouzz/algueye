@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import vidPaysage from "../../assets/video.mp4";
-import vidPortrait from "../../assets/video.mp4";
+import vidPaysage from "../../assets/vidsInsta/vid1.mp4";
+import vidPortrait from "../../assets/vidsInsta/vid1.mp4";
 
 // Ajout des props pour communiquer avec le parent
 interface HeroVideoProps {
