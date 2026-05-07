@@ -334,7 +334,7 @@ export default function Evenements() {
 
             {/* ── Événement phare en vedette ────────────────── */}
             {featuredEvents.length > 0 && (
-                <section className="bg-black py-20!" ref={featuredRef}>
+                <section className="bg-black py-20!" ref={featuredRef} data-header-theme="black">
                     <div className="container">
                         <div className="relative flex w-full flex-col-reverse ">
                             <h2 className="uppercase font-bold text-balance text-4xl lg:text-7xl! block">
@@ -469,7 +469,7 @@ export default function Evenements() {
             )}
 
             {/* ── Liste des événements (fond blanc) ─────────── */}
-            <section className="bg-white py-20! text-black px-10! lg:px-0!">
+            <section className="bg-white py-20! text-black px-10! lg:px-0!" data-header-theme="white">
                 <div className={isDesktop ? 'px-12!' : 'px-5'} style={{ maxWidth: 'var(--container)', margin: '0 auto' }}>
 
                     {/* Filtres par catégorie */}

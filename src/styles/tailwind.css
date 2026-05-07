@@ -43,6 +43,31 @@
     --nav-h: 80px;
     --container: 1320px;
     --gutter: clamp(1.5rem, 5vw, 5rem);
+
+    /* Header Themes Defaults (White) */
+    --header-bg: var(--color-white);
+    --header-text: var(--color-black);
+    --header-border: var(--color-black);
+    --header-transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease;
+}
+
+/* Header Theme Classes */
+.header-theme-white {
+    --header-bg: var(--color-white);
+    --header-text: var(--color-black);
+    --header-border: var(--color-black);
+}
+
+.header-theme-black {
+    --header-bg: var(--color-black);
+    --header-text: var(--color-white);
+    --header-border: var(--color-gold);
+}
+
+.header-theme-gold {
+    --header-bg: var(--color-gold);
+    --header-text: var(--color-black);
+    --header-border: var(--color-black);
 }
 
 /* ── 4. Reset & Base ───────────────────────────────────────── */

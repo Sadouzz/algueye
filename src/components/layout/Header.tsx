@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { StaggeredMenu } from "./StaggeredMenu";
 import { gsap } from "gsap";
@@ -7,11 +7,14 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
+type HeaderTheme = 'white' | 'black' | 'gold';
+
 export default function Header() {
     const location = useLocation();
     const headerRef = useRef<HTMLElement>(null);
     const isContact = location.pathname === "/contact";
     const [menuOpen, setMenuOpen] = useState(false);
+    const [theme, setTheme] = useState<HeaderTheme>('white');
 
     useGSAP(() => {
         const el = headerRef.current;
@@ -19,24 +22,76 @@ export default function Header() {
         if (isContact) return;
     }, [isContact, location.pathname]);
 
+    // Détection dynamique du thème en fonction des sections visibles
+    useEffect(() => {
+        const observerOptions = {
+            root: null,
+            rootMargin: '-10% 0px -85% 0px', // Focalisé sur le haut de l'écran
+            threshold: 0
+        };
+
+        const handleIntersection = (entries: IntersectionObserverEntry[]) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const sectionTheme = entry.target.getAttribute('data-header-theme') as HeaderTheme;
+                    if (sectionTheme) {
+                        setTheme(sectionTheme);
+                    }
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(handleIntersection, observerOptions);
+        
+        // On observe toutes les sections qui ont un attribut data-header-theme
+        const sections = document.querySelectorAll('[data-header-theme]');
+        sections.forEach(section => observer.observe(section));
+
+        // Fallback: si on est tout en haut et qu'aucune section n'est détectée (ou au changement de page)
+        const handleScroll = () => {
+            if (window.scrollY < 50) {
+                // Sur certaines pages, on veut un thème spécifique par défaut
+                if (location.pathname === '/naru-goor') {
+                    setTheme('black');
+                } else if (location.pathname === '/events') {
+                    setTheme('white');
+                } else {
+                    setTheme('white');
+                }
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Initial check
+
+        return () => {
+            observer.disconnect();
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [location.pathname]);
+
     return (
         <>
             <header
                 ref={headerRef}
-                className="raleway overflow-hidden w-[calc(100vw-32px)] lg:w-[calc(100vw-64px)] max-w-[1800px] shadow-sm bg-white border border-black"
+                className={`raleway overflow-hidden w-[calc(100vw-32px)] lg:w-[calc(100vw-64px)] max-w-[1800px] shadow-sm border header-theme-${theme}`}
                 style={{
                     position: 'fixed',
                     top: '10px',
                     left: '50%',
                     transform: 'translateX(-50%)',
                     height: '64px',
-                    zIndex: 1000
+                    zIndex: 1000,
+                    backgroundColor: 'var(--header-bg)',
+                    borderColor: 'var(--header-border)',
+                    color: 'var(--header-text)',
+                    transition: 'var(--header-transition)'
                 }}
             >
                 <nav className="flex w-full h-full items-center relative z-10 justify-between lg:justify-start">
 
                     {/* --- GAUCHE (Desktop uniquement) --- */}
-                    <div className="hidden lg:flex flex-1 h-full items-center justify-start border-r border-black bg-white">
+                    <div className="hidden lg:flex flex-1 h-full items-center justify-start border-r border-[var(--header-border)] transition-colors duration-400">
                         <HeaderLink to="/" label="Accueil" />
                         <HeaderLink to="/about" label="À propos" />
                         <HeaderLink to="/events" label="Evènements" />
@@ -44,16 +99,16 @@ export default function Header() {
                     </div>
 
                     {/* --- LOGO CENTRE (Desktop) / LOGO + MENU (Mobile) --- */}
-                    {/* Desktop: logo centré */}
                     <NavLink
                         to="/"
-                        className="group lg:flex h-full w-[250px] md:w-[350px] lg:w-[500px] shrink-0 flex-col items-center justify-center overflow-hidden bg-white cursor-pointer relative mx-auto lg:mx-0 border-r border-black lg:border-r-0 lg:border-l-0 border-l"
+                        className="group lg:flex h-full w-[250px] md:w-[350px] lg:w-[500px] shrink-0 flex-col items-center justify-center overflow-hidden cursor-pointer relative mx-auto lg:mx-0 border-r border-[var(--header-border)] lg:border-r-0 lg:border-l-0 border-l transition-colors duration-400"
+                        style={{ backgroundColor: 'var(--header-bg)' }}
                     >
                         <div
                             className="flex items-center justify-center transition-transform duration-500 group-hover:-translate-y-[250%]"
                             style={{ transitionTimingFunction: 'cubic-bezier(0.49, 0.03, 0.13, 0.99)' }}
                         >
-                            <span className="font-black text-xl md:text-2xl lg:text-3xl tracking-[0.1em] lg:tracking-[0.15em] uppercase text-black">
+                            <span className="font-black text-xl md:text-2xl lg:text-3xl tracking-[0.1em] lg:tracking-[0.15em] uppercase" style={{ color: 'var(--header-text)' }}>
                                 ALGUEYE DAKAR
                             </span>
                         </div>
@@ -66,10 +121,11 @@ export default function Header() {
                     </NavLink>
 
                     {/* Mobile: ALGUEYE à gauche + MENU à droite */}
-                    <div className="flex lg:hidden w-full h-full items-center justify-between px-4! bg-white">
+                    <div className="flex lg:hidden w-full h-full items-center justify-between px-4! transition-colors duration-400" style={{ backgroundColor: 'var(--header-bg)' }}>
                         <button
                             onClick={() => setMenuOpen(true)}
-                            className="flex items-center gap-2 bg-transparent border-0 cursor-pointer font-bold tracking-widest text-xs uppercase text-black"
+                            className="flex items-center gap-2 bg-transparent border-0 cursor-pointer font-bold tracking-widest text-xs uppercase"
+                            style={{ color: 'var(--header-text)' }}
                             aria-label="Ouvrir le menu"
                             type="button"
                         >
@@ -84,7 +140,7 @@ export default function Header() {
                     </div>
 
                     {/* --- DROITE (Desktop uniquement) --- */}
-                    <div className="hidden lg:flex flex-1 h-full items-center justify-end border-l border-black bg-white">
+                    <div className="hidden lg:flex flex-1 h-full items-center justify-end border-l border-[var(--header-border)] transition-colors duration-400">
                         <HeaderLink to="/confections" label="Confections" />
                         <HeaderLink to="/collections" label="Collections" />
                         <HeaderLink to="/tenues" label="Tenues" />
@@ -127,10 +183,11 @@ function HeaderLink({ to, label }: { to: string; label: string }) {
         <NavLink
             to={to}
             className={({ isActive }) => `
-                group/link relative flex h-full grow items-center justify-center px-2 xl:px-4 font-bold uppercase text-[10px] xl:text-xs tracking-widest !text-black transition-colors duration-300
-                border-r border-black last:border-r-0 hover:bg-gray-50
-                ${isActive ? "bg-gold" : "bg-white"}
+                group/link relative flex h-full grow items-center justify-center px-2 xl:px-4 font-bold uppercase text-[10px] xl:text-xs tracking-widest transition-all duration-400
+                border-r border-[var(--header-border)] last:border-r-0 hover:bg-black/5
+                ${isActive ? "bg-gold !text-black" : "text-[var(--header-text)]"}
             `}
+            style={{ transition: 'var(--header-transition)' }}
         >
             {label}
             <div className={`absolute bottom-0 left-0 h-[3px] w-full transition-colors duration-300 

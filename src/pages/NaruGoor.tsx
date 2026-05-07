@@ -35,7 +35,7 @@ export default function NaruGoor() {
             />
 
             {/* ── Hero ─────────────────────────────────────────── */}
-            <div className="relative h-screen flex items-end overflow-hidden bg-black">
+            <div className="relative h-screen flex items-end overflow-hidden bg-black" data-header-theme="black">
                 <div
                     className="absolute inset-0 bg-cover bg-center opacity-60"
                     style={{ backgroundImage: `url(${ng1})` }}
@@ -65,7 +65,7 @@ export default function NaruGoor() {
             </div>
 
             {/* ── Valeurs ──────────────────────────────────────── */}
-            <div className="bg-black text-white py-20! md:py-32! px-8 md:px-20!">
+            <div className="bg-black text-white py-20! md:py-32! px-8 md:px-20!" data-header-theme="black">
                 <div className="mx-15! flex justify-center items-center flex-col">
                     <div className="relative flex text-center w-full flex-col-reverse pt-5! mb-8!">
                         <h2 className="uppercase font-bold text-balance text-4xl lg:text-8xl block">
@@ -88,7 +88,7 @@ export default function NaruGoor() {
             </div>
 
             {/* ── Grille 3 photos ──────────────────────────────── */}
-            <div className="grid grid-cols-2 md:grid-cols-3 h-[60vh]">
+            <div className="grid grid-cols-2 md:grid-cols-3 h-[60vh]" data-header-theme="black">
                 <div className="overflow-hidden relative group col-span-1">
                     <img src={ng2} alt="Naru Goor Tradition" className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700" />
                     <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-500" />
@@ -117,7 +117,7 @@ export default function NaruGoor() {
 
             {/* ── Collection complète ──────────────────────────── */}
             {naruGoorTenues.length > 0 && (
-                <div className="py-20! md:py-28 px-8! md:px-15! bg-white">
+                <div className="py-20! md:py-28 px-8! md:px-15! bg-white" data-header-theme="white">
                     <div className="">
                         <div className="flex justify-center items-center mb-14">
                             <div className="relative flex w-full flex-col-reverse pt-5! text-center">
@@ -152,7 +152,7 @@ export default function NaruGoor() {
             )}
 
             {/* ── Split ng5 + CTA ───────────────────────────────── */}
-            <div className="flex flex-col md:flex-row min-h-[60vh]">
+            <div className="flex flex-col md:flex-row min-h-[60vh]" data-header-theme="black">
                 <div className="w-full md:w-1/2 overflow-hidden relative">
                     <img src={ng5} alt="Naru Goor Essentiel" className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700" />
                     <div className="absolute inset-0 bg-black/30" />
