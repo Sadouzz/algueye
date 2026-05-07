@@ -161,7 +161,7 @@ const StorySection = () => (
             <div className="relative w-full text-start">
                 <div className="relative aspect-square lg:aspect-video rounded-xl overflow-hidden shadow-2xl">
                     <img alt="Boutique de luxe" loading="lazy" src={imgB1} className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 hover:scale-105" />
-                    <div className="absolute hidden max-w-[450px] border border-black bg-white p-6 lg:block bottom-6 left-6">
+                    <div className="absolute hidden max-w-[450px] border border-black bg-white p-6! lg:block bottom-6 left-6">
                         <div className="flex flex-col gap-6">
                             <h2 className="font-bold text-3xl lg:text-4xl uppercase">
                                 Le grand boubou est-il
@@ -228,9 +228,9 @@ export default function Confections() {
                         <div className="relative flex w-full flex-col-reverse mb-8">
                             <h2 className="uppercase font-bold text-balance text-center text-black text-4xl md:text-6xl! block mt-6!">
                                 Une création sur mesure requiert<br/>
-                                <em style={{ color: 'var(--color-gold-dark)' }}> 80 heures de travail.</em>
+                                <em style={{ color: 'var(--color-gold-dark)' }}> + 80 heures de travail.</em>
                             </h2>
-                            <span className="w-full font-serif rotate-[-2deg] text-center text-gold font-quickbrush mb-2! text-4xl md:text-6xl block">
+                            <span className="w-full font-serif rotate-[-2deg] text-center text-gold font-quickbrush mb-1! text-4xl md:text-6xl block">
                                 L'art de la perfection
                             </span>
                         </div>

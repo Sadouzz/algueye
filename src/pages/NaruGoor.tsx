@@ -38,7 +38,7 @@ export default function NaruGoor() {
 
                 <div className="relative z-10 w-full px-8! md:px-20! pb-16! md:pb-24!">
                     <div className="flex  flex-col-reverse pt-15! mb-3! ">
-                    <span className="w-full rotate-[-2deg] font-serif  text-gold font-quickbrush -mb-2 xl:-mb-4 text-4xl lg:text-6xl">
+                        <span className="w-full rotate-[-2deg] font-serif  text-gold font-quickbrush -mb-2 xl:-mb-4 text-4xl lg:text-6xl">
                             ALGUEYE DAKAR — Sous-marque exclusive
                         </span>
                     </div>
@@ -111,22 +111,19 @@ export default function NaruGoor() {
 
             {/* ── Collection complète ──────────────────────────── */}
             {naruGoorTenues.length > 0 && (
-                <div className="py-20 md:py-28 px-8 md:px-20 bg-white">
-                    <div className="max-w-7xl mx-auto">
-                        <div className="flex justify-between items-end mb-14">
-                            <div>
-                                <span className="text-gold-dark tracking-widest text-xs uppercase font-bold mb-3 block">
+                <div className="py-20! md:py-28 px-8! md:px-15! bg-white">
+                    <div className="">
+                        <div className="flex justify-center items-center mb-14">
+                            <div className="relative flex w-full flex-col-reverse pt-5! text-center">
+                                <h2 className="uppercase font-bold text-black text-balance text-7xl lg:text-8xl block">
+                                    La <em style={{ color: 'var(--color-gold)' }}> Collection.</em>
+                                </h2>
+                                <span className="w-full rotate-[-2deg] font-serif text-center text-gold font-quickbrush -mb-2 xl:-mb-4 text-4xl lg:text-6xl">
                                     Créations exclusives
                                 </span>
-                                <div className="relative flex flex-col-reverse">
-                                    <h2 className="text-5xl md:text-6xl font-extrabold uppercase tracking-tight text-gray-900">
-                                        La Collection
-                                    </h2>
-                                    <span className="font-serif text-gold font-quickbrush text-2xl lg:text-4xl -mb-1">
-                                        Naru Goor
-                                    </span>
-                                </div>
                             </div>
+                        </div>
+                        <div className="flex justify-center items-center mb-14!">
                             <Link to="/tenues" className="btn-outline hidden md:flex">
                                 <span>Voir tout</span>
                                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -154,13 +151,16 @@ export default function NaruGoor() {
                     <img src={ng5} alt="Naru Goor Essentiel" className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700" />
                     <div className="absolute inset-0 bg-black/30" />
                 </div>
-                <div className="w-full md:w-1/2 bg-black text-white flex flex-col justify-center px-10 md:px-16 py-16">
-                    <span className="text-gold-dark tracking-widest text-xs uppercase font-bold mb-6 block">Sur mesure</span>
-                    <h2 className="text-4xl md:text-5xl font-extrabold uppercase tracking-tight mb-4">
-                        Votre tenue,<br />votre identité
-                    </h2>
-                    <div className="w-12 h-[1px] bg-gold mb-6" />
-                    <p className="text-gray-400 font-light leading-[1.9] mb-10 max-w-sm">
+                <div className="w-full md:w-1/2 bg-black text-white flex flex-col justify-center px-10! md:px-16! py-16">
+                    <div className="relative flex w-full flex-col-reverse pt-5!">
+                        <h2 className="uppercase font-bold  text-balance text-7xl lg:text-8xl block">
+                            Votre tenue,<br /><em style={{ color: 'var(--color-gold)' }}> votre identité.</em>
+                        </h2>
+                        <span className="w-full rotate-[-2deg] font-serif text-gold font-quickbrush -mb-2 xl:-mb-4 text-4xl lg:text-6xl">
+                            Sur mesure
+                        </span>
+                    </div>
+                    <p className="text-gray-400 font-light leading-[1.9] mb-10! max-w-sm">
                         Chaque homme mérite une pièce unique. Prenez rendez-vous avec nos artisans pour une création sur mesure.
                     </p>
                     <Link to="/contact" className="btn-gold self-start">

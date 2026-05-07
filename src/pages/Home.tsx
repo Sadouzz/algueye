@@ -3,6 +3,8 @@ import Hero from "../components/Hero";
 import StorySection from "../components/sections/StorySection";
 import { HorizontalGallery } from "../components/sections/HorizontalGallery";
 import Testimonials from "../components/sections/Testimonials";
+import PartnersSection from "../components/sections/PartnersSection";
+import InstagramFeed from "../components/sections/InstagramFeed";
 import CircularGallery from "../components/atoms/CircularGallery";
 import { collections } from "../data/collections.data";
 import { Link } from "react-router-dom";
@@ -96,6 +98,8 @@ export default function Home() {
             </div>
 
             <HorizontalGallery></HorizontalGallery>
+            <PartnersSection></PartnersSection>
+            <InstagramFeed></InstagramFeed>
             {/* <ScrubbedBentoGallery></ScrubbedBentoGallery> */}
             <Testimonials></Testimonials>
         </div>

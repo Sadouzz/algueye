@@ -3,138 +3,10 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import PageHeroSection from '../components/sections/PageHeroSection';
 import useIsDesktop from '../hooks/useIsDesktop';
-
+import { Link } from 'react-router-dom';
 gsap.registerPlugin(ScrollTrigger);
 
-// ─── Types ────────────────────────────────────────────────────
-type EventCategory = 'Tous' | 'Défilés' | 'Expositions' | 'Ateliers' | 'Ventes privées';
-
-interface Event {
-    id: number;
-    category: Exclude<EventCategory, 'Tous'>;
-    date: string;
-    month: string;
-    year: string;
-    title: string;
-    subtitle: string;
-    location: string;
-    city: string;
-    description: string;
-    status: 'À venir' | 'Passé';
-    featured?: boolean;
-}
-
-// ─── Données ──────────────────────────────────────────────────
-const EVENTS: Event[] = [
-    {
-        id: 1,
-        category: 'Défilés',
-        date: '14',
-        month: 'Juin',
-        year: '2025',
-        title: 'Collection Été 2025 — « Harmattan »',
-        subtitle: 'Grand défilé de Haute Couture',
-        location: 'Place du Souvenir Africain',
-        city: 'Dakar, Sénégal',
-        description: "Une collection qui célèbre la force et la douceur du vent de l'Est. Silhouettes fluides, broderies d'or et tissus aériens composent ce voyage esthétique au cœur de l'Afrique de l'Ouest.",
-        status: 'À venir',
-        featured: true,
-    },
-    {
-        id: 2,
-        category: 'Expositions',
-        date: '01',
-        month: 'Jul',
-        year: '2025',
-        title: 'Exposition « Racines »',
-        subtitle: 'Installation artistique & mode',
-        location: 'Musée des Civilisations Noires',
-        city: 'Dakar, Sénégal',
-        description: 'Une exposition immersive explorant les racines culturelles de notre esthétique. Photographies, tissus ancestraux et pièces de la maison dialoguent dans un parcours inédit.',
-        status: 'À venir',
-    },
-    {
-        id: 3,
-        category: 'Ateliers',
-        date: '20',
-        month: 'Jul',
-        year: '2025',
-        title: "Atelier Broderie d'Art",
-        subtitle: 'Session intensive sur-mesure',
-        location: 'Atelier Algueye',
-        city: 'Dakar, Sénégal',
-        description: 'Un atelier intensif de deux jours pour découvrir les techniques de broderie traditionnelles et contemporaines utilisées par nos artisans. Places limitées à 12 participants.',
-        status: 'À venir',
-    },
-    {
-        id: 4,
-        category: 'Ventes privées',
-        date: '05',
-        month: 'Août',
-        year: '2025',
-        title: 'Vente Privée — Archives & Pièces Rares',
-        subtitle: 'Événement sur invitation',
-        location: 'Studio Algueye',
-        city: 'Dakar, Sénégal',
-        description: "Accès exclusif à nos archives et pièces rares de collections passées. Une opportunité unique d'acquérir des pièces de collector à des tarifs préférentiels pour nos clients fidèles.",
-        status: 'À venir',
-    },
-    {
-        id: 5,
-        category: 'Défilés',
-        date: '10',
-        month: 'Sep',
-        year: '2025',
-        title: 'Semaine Internationale de la Mode de Dakar',
-        subtitle: 'Participation officielle',
-        location: 'King Fahd Palace',
-        city: 'Dakar, Sénégal',
-        description: 'Algueye présente sa nouvelle collection sur la scène de la SIMOD, aux côtés des plus grandes maisons africaines contemporaines. Le clou de la saison mode à Dakar.',
-        status: 'À venir',
-        featured: true,
-    },
-    {
-        id: 6,
-        category: 'Expositions',
-        date: '15',
-        month: 'Nov',
-        year: '2024',
-        title: 'Paris African Fashion Week',
-        subtitle: 'Exposition & présentation de collection',
-        location: 'Grand Palais Éphémère',
-        city: 'Paris, France',
-        description: 'Algueye a présenté sa collection « Sahelian Nights » dans le cadre de la PAFW, accueillie par un public international et plusieurs éditeurs de presse internationale.',
-        status: 'Passé',
-    },
-    {
-        id: 7,
-        category: 'Défilés',
-        date: '22',
-        month: 'Mar',
-        year: '2024',
-        title: 'Collection Printemps 2024 — « Savane »',
-        subtitle: 'Défilé Prêt-à-Porter',
-        location: 'Monument de la Renaissance',
-        city: 'Dakar, Sénégal',
-        description: 'Le retour aux terres. Une collection Prêt-à-Porter entièrement teintée à la main, inspirée des ocres et des verts de la savane sénégalaise en saison sèche.',
-        status: 'Passé',
-    },
-    {
-        id: 8,
-        category: 'Ateliers',
-        date: '08',
-        month: 'Fév',
-        year: '2024',
-        title: 'Workshop Draping & Construction',
-        subtitle: 'Masterclass avec les ateliers',
-        location: 'Atelier Algueye',
-        city: 'Dakar, Sénégal',
-        description: 'Initiation aux techniques de draping sur corps et de construction de patrons. Un atelier pensé pour les étudiants en mode et les professionnels souhaitant approfondir leur savoir-faire.',
-        status: 'Passé',
-    },
-];
-
-const CATEGORIES: EventCategory[] = ['Tous', 'Défilés', 'Expositions', 'Ateliers', 'Ventes privées'];
+import { type Event, type EventCategory, EVENTS, CATEGORIES } from '../data/events.data';
 
 const STATUS_STYLES: Record<Event['status'], React.CSSProperties> = {
     'À venir': { background: 'rgba(201,168,76,0.15)', color: 'var(--color-gold-dark)', border: '1px solid rgba(201,168,76,0.3)' },
@@ -149,8 +21,8 @@ function EventCard({ event, isDesktop }: { event: Event; isDesktop: boolean }) {
         <div
             style={{
                 display: 'grid',
-                gridTemplateColumns: isDesktop ? '90px 1fr' : '1fr',
-                gap: isDesktop ? '0' : '1.5rem',
+                gridTemplateColumns: isDesktop ? '90px 200px 1fr' : '1fr',
+                gap: isDesktop ? '2rem' : '1.5rem',
                 borderTop: '1px solid rgba(0,0,0,0.1)',
                 paddingTop: '2rem',
                 paddingBottom: '2rem',
@@ -199,8 +71,13 @@ function EventCard({ event, isDesktop }: { event: Event; isDesktop: boolean }) {
                 </div>
             )}
 
+            {/* Image Block */}
+            <div style={{ width: '100%', aspectRatio: isDesktop ? '4/5' : '16/9', overflow: 'hidden', borderRadius: '4px' }}>
+                <img src={event.image} alt={event.title} style={{ width: '100%', height: '100%', objectFit: 'cover', filter: isPast ? 'grayscale(100%)' : 'none', transition: 'filter 0.3s, transform 0.5s' }} className="hover:scale-105" />
+            </div>
+
             {/* Content */}
-            <div style={{ paddingLeft: isDesktop ? '2rem' : '0' }}>
+            <div style={{ paddingLeft: isDesktop ? '0' : '0' }}>
                 {/* Mobile: date inline */}
                 {!isDesktop && (
                     <div style={{ marginBottom: '0.75rem' }}>
@@ -326,16 +203,14 @@ function EventCard({ event, isDesktop }: { event: Event; isDesktop: boolean }) {
                     </div>
 
                     {/* CTA */}
-                    {!isPast && (
-                        <div style={{ flexShrink: 0, alignSelf: 'center' }}>
-                            <button className="btn-outline" style={{ whiteSpace: 'nowrap' }}>
-                                <span>S'inscrire</span>
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                    <path d="M5 12h14M12 5l7 7-7 7" />
-                                </svg>
-                            </button>
-                        </div>
-                    )}
+                    <div style={{ flexShrink: 0, alignSelf: 'center' }}>
+                        <Link to={`/events/${event.slug}`} className="btn-outline" style={{ whiteSpace: 'nowrap' }}>
+                            <span>{isPast ? 'Voir les détails' : "S'inscrire"}</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>
@@ -477,12 +352,12 @@ export default function Evenements() {
                                             {event.description}
                                         </p>
                                     </div>
-                                    <a href="#inscription" className="btn-gold">
+                                    <Link to={`/events/${event.slug}`} className="btn-gold">
                                         <span>Réserver ma place</span>
                                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                                             <path d="M5 12h14M12 5l7 7-7 7" />
                                         </svg>
-                                    </a>
+                                    </Link>
                                 </div>
 
                                 {/* Bloc droit: date + lieu */}

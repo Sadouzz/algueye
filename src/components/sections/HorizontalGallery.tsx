@@ -2,57 +2,21 @@ import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { MonitorPlay, Trophy, Gamepad } from 'lucide-react';
 
-import a7 from "../../assets/tenues/A7.jpeg";
-import a8 from "../../assets/tenues/A8.jpeg";
-import a9 from "../../assets/tenues/A9.jpeg";
 import { Link } from 'react-router-dom';
-// import b1 from "../../assets/tenues/b1.jpg";
-// import b2 from "../../assets/tenues/b2.jpg";
-// import b3 from "../../assets/tenues/b3.jpg";
-// import b4 from "../../assets/tenues/b4.jpg";
-// import b5 from "../../assets/tenues/b5.jpg";
+import { EVENTS } from '../../data/events.data';
 
-const zones = [
-  {
-    id: 'harmattan2025',
-    title: 'Collection Été 2025 — « Harmattan »',
-    subtitle: "Défilés",
-    number: '01',
-    image: a7,
-    icon: Trophy,
-    color: 'text-neon-green',
-    date: "20/11/2025",
-    link: "/",
-    description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic mollitia sequi repellendus cupiditate dignissimos nesciunt."
-  },
-  {
-    id: 'racines',
-    title: 'Exposition « Racines »',
-    subtitle: "Expositions",
-    number: '02',
-    image: a8,
-    icon: MonitorPlay,
-    color: 'text-electric-blue',
-    date: "20/11/2025",
-    link: "/",
-    description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic mollitia sequi repellendus cupiditate dignissimos nesciunt."
-  },
-  {
-    id: 'broderie',
-    title: "Atelier Broderie d'Art",
-    subtitle: "Ateliers",
-    number: '03',
-    image: a9,
-    icon: Gamepad,
-    color: 'text-purple-500',
-    date: "20/11/2025",
-    link: "/",
-    description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic mollitia sequi repellendus cupiditate dignissimos nesciunt."
-  },
-
-];
+const zones = EVENTS.slice(0, 3).map((event, index) => ({
+  id: event.slug,
+  title: event.title,
+  subtitle: event.category,
+  number: `0${index + 1}`,
+  image: event.image,
+  color: 'text-white',
+  date: `${event.date} ${event.month} ${event.year}`,
+  link: `/events/${event.slug}`,
+  description: event.description.length > 120 ? event.description.substring(0, 120) + '...' : event.description
+}));
 
 export const HorizontalGallery = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -130,7 +94,7 @@ export const HorizontalGallery = () => {
           <p className="text-black  mb-2! xl:mb-4! text-lg lg:text-xl">
             Découvrez nos dernières collections et nos évènements exclusifs. Plongez dans l'univers d'<em style={{ color: 'var(--color-gold)' }}>Algueye Dakar</em> et laissez-vous inspirer par nos créations uniques.
           </p>
-          <Link to="/naru-goor" className="btn-gold self-start">
+          <Link to="/events" className="btn-gold self-start">
             <span>Tous les évènements</span>
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
               <path d="M5 12h14M12 5l7 7-7 7" />
@@ -150,7 +114,7 @@ export const HorizontalGallery = () => {
             </div>
 
             {/* The actual card */}
-            <div className="relative w-full h-full z-10 overflow-hidden border mr-20! border-black">
+            <Link to={zone.link} className="relative w-full h-full z-10 overflow-hidden border mr-20! border-black block">
               <img
                 src={zone.image}
                 alt={zone.title}
@@ -185,7 +149,7 @@ export const HorizontalGallery = () => {
                   <div className="w-12 h-1 bg-white mb-6" />
                 </div>
               </div>
-            </div>
+            </Link>
           </div>
         ))}
 
