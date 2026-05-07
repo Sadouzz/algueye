@@ -31,7 +31,7 @@ const VALUES = [
 ];
 
 const TIMELINE = [
-    { year: '2018', event: 'Naissance du concept à Dakar — un atelier, une vision.' },
+    { year: '2012', event: 'Fondation de la marque ALGUEYE par Abdou Lahad GUEYE.' },
     { year: '2019', event: 'Première collection capsule présentée à la FESPAD.' },
     { year: '2020', event: 'Ouverture du studio sur mesure, Médina, Dakar.' },
     { year: '2021', event: 'Participation à la semaine de la mode de Dakar.' },
@@ -42,7 +42,7 @@ const TIMELINE = [
 ];
 
 const STATS = [
-    { num: '2018', label: 'Fondée à Dakar' },
+    { num: '2012', label: 'Fondée à Dakar' },
     { num: '100+', label: 'Créations uniques' },
     { num: '30+', label: 'Pays & marchés' },
     { num: '∞', label: 'Élégance intemporelle' },
@@ -171,7 +171,7 @@ export default function About() {
                                     maxWidth: '540px',
                                 }}
                             >
-                                Algueye est née d'une conviction profonde : l'Afrique possède un patrimoine stylistique unique, riche de textures, de couleurs et de savoirs ancestraux qui méritent d'être portés à l'avant-scène mondiale.
+                                ALGUEYE est une marque de mode fondée en 2012 par Abdou Lahad GUEYE. Le nom de la marque provient des noms et prénoms du fondateur, ce qui la rend vraiment unique. ALGUEYE DAKAR propose des vêtements d’inspiration moderne et ethnique pour hommes et femmes qui sont conçus pour être élégants et authentiques à n’importe quelle phase de la vie.
                             </p>
                             <p
                                 className="raleway"
@@ -183,7 +183,7 @@ export default function About() {
                                     maxWidth: '540px',
                                 }}
                             >
-                                Fondée à Dakar, notre maison allie la rigueur du luxe européen à l'âme vibrante de l'artisanat sénégalais. Chaque collection est un dialogue entre tradition et modernité, entre héritage et innovation.
+                                Nous fournissons des vêtements chics et glamour en mettant l’accent sur l’agilité et l’adaptabilité. Nos vêtements permettent aux clients d’exprimer leur propre style tout en répondant à leurs besoins quotidiens, leur permettant de rester à jour avec les dernières tendances sans sacrifier l’intemporalité. Avec nos vêtements, vous pouvez créer votre propre look unique pour toute occasion.
                             </p>
                             <a href="/collections" className="btn-gold">
                                 <span>Découvrir nos collections</span>
@@ -436,7 +436,7 @@ export default function About() {
                             marginTop: '1.5rem',
                         }}
                     >
-                        — Fondateur, Algueye Dakar
+                        — Abdou Lahad GUEYE, Fondateur
                     </p>
                 </div>
             </section>

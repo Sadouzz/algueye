@@ -3,6 +3,7 @@ import a7 from "../assets/tenues/A7.jpeg";
 import a8 from "../assets/tenues/A8.jpeg";
 import a9 from "../assets/tenues/A9.jpeg";
 import b1 from "../assets/tenues/B1.jpeg";
+import ng1 from "../assets/tenues/naru-goor/img1.png";
 import { tenues } from "./tenues.data.ts";
 
 export const collections = [
@@ -101,6 +102,31 @@ export const collections = [
         projects: [
             tenues[7], // tenue-soiree-1
             tenues[8], // tenue-soiree-2
+        ],
+    },
+
+    {
+        id: "naru-goor",
+        title: "Naru Goor",
+        subtitle: "L'ÉLÉGANCE MASCULINE",
+        content:
+            "Naru Goor, la sous-marque exclusivement masculine d'ALGUEYE, allie la rigueur du tailleur classique à l'authenticité africaine pour un homme moderne, charismatique et fier de son identité.",
+        keys: [
+            "Tailleur homme",
+            "Coupes franches",
+            "Charisme",
+            "Modernité",
+            "Tradition sénégalaise",
+            "Prestance",
+        ],
+        miniTitleWithBar: "SÉLECTION NARU GOOR",
+        img: ng1,
+        projects: [
+            tenues[11], // tenue-ng-1
+            tenues[12], // tenue-ng-2
+            tenues[13], // tenue-ng-3
+            tenues[14], // tenue-ng-4
+            tenues[15], // tenue-ng-5
         ],
     },
 ];

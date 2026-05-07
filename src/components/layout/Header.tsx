@@ -88,10 +88,10 @@ export default function Header() {
 
                     {/* Sous-texte cursif qui apparaît par le bas */}
                     <p
-                        className="absolute w-full translate-y-[250%] text-center text-sm lg:text-base font-serif italic text-black transition-transform duration-500 group-hover:translate-y-0"
+                        className="absolute w-full translate-y-[250%] text-center text-lg lg:text-xl font-serif italic text-gold transition-transform duration-500 group-hover:translate-y-0"
                         style={{ transitionTimingFunction: 'cubic-bezier(0.49, 0.03, 0.13, 0.99)' }}
                     >
-                        Une tradition qui se savoure chaque jour
+                        Les détails, où que vous soyez.
                     </p>
                 </NavLink>
 
@@ -99,6 +99,7 @@ export default function Header() {
                 <div className="flex flex-1 h-full items-center justify-end border-l border-black bg-white">
                     <HeaderLink to="/confections" label="Confections" />
                     <HeaderLink to="/collections" label="Collections" />
+                    <HeaderLink to="/tenues" label="Tenues" />
                     <HeaderLink to="/naru-goor" label="Naru Goor" />
                 </div>
 

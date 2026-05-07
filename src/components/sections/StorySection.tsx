@@ -77,13 +77,13 @@ export default function StorySection() {
             </div>
             <div style={{ height: '1px', background: 'var(--border)', marginBottom: '2rem', width: '60px' }} />
             <p style={{ fontFamily: 'var(--font-sans)', fontSize: '1rem', color: 'rgba(255,255,255,0.75)', lineHeight: 1.9, marginBottom: '1.5rem' }}>
-              Algueye est une maison de mode de luxe fondée à Dakar. Chaque pièce est conçue pour révéler l'élégance africaine dans toute sa puissance, de la Médina aux capitales du monde.
+              ALGUEYE est une marque de mode fondée en 2012 par Abdou Lahad GUEYE. Le nom de la marque provient des noms et prénoms du fondateur, ce qui la rend vraiment unique. ALGUEYE DAKAR propose des vêtements d’inspiration moderne et ethnique pour hommes et femmes.
             </p>
             <p style={{ fontFamily: 'var(--font-sans)', fontSize: '1rem', color: 'rgba(255,255,255,0.75)', lineHeight: 1.9, marginBottom: '2.5rem' }}>
-              Nous croyons en une mode intemporelle, ancrée dans l'identité africaine, portée par un artisanat d'exception. Chaque tissu, chaque coupe, chaque détail est un hommage à notre héritage.
+              Nos vêtements permettent d’exprimer son propre style tout en répondant aux besoins quotidiens, alliant dernières tendances et intemporalité pour créer un look unique, chic et glamour, pour toute occasion.
             </p>
             <div style={{ display: 'flex', gap: '3rem', marginBottom: '2.5rem' }}>
-              {[['2020', 'Fondation'], ['100+', 'Créations'], ['30+', 'Pays']].map(([num, lbl]) => (
+              {[['2012', 'Fondation'], ['100+', 'Créations'], ['30+', 'Pays']].map(([num, lbl]) => (
                 <div key={lbl}>
                   <p style={{ fontFamily: 'var(--font-serif)', fontSize: '2.5rem', fontWeight: 300, color: 'var(--gold)', lineHeight: 1 }}>{num}</p>
                   <p style={{ fontFamily: 'var(--font-sans)', fontSize: '0.65rem', letterSpacing: '0.2em', color: 'var(--text-muted)', textTransform: 'uppercase', marginTop: '0.4rem' }}>{lbl}</p>

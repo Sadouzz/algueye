@@ -15,6 +15,7 @@ import Tenues from "./pages/Tenues.tsx";
 import Confections from "./pages/Confections.tsx";
 import NaruGoor from "./pages/NaruGoor.tsx";
 import FloatingContact from "./components/atoms/FloatingContact.tsx";
+import TenueTemplate from "./pages/TenueTemplate.tsx";
 //import Footer from "./components/layout/Footer";
 //import Menu from "./pages/Menu";
 //import Order from "./pages/Order";
@@ -52,11 +53,12 @@ function AppContent() {
           <Route path="/" element={<Home />} />
           <Route path="/collections" element={<Collections />} />
           <Route path="/confections" element={<Confections />} />
-          <Route path="/collections/tenues" element={<Tenues />} />
+          <Route path="/tenues" element={<Tenues />} />
           <Route path="/about" element={<About />} />
           <Route path="/events" element={<Evenements />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/naru-goor" element={<NaruGoor />} />
+          <Route path="/collections/tenues/:slug" element={<TenueTemplate />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>
