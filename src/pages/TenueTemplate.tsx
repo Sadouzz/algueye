@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { tenues } from '../data/tenues.data';
+import Seo from '../components/seo/Seo';
 
 export default function TenueTemplate() {
     const { slug } = useParams();
@@ -23,6 +24,11 @@ export default function TenueTemplate() {
     return (
         // L'ajout de md:items-start est crucial ici pour que le sticky de la colonne de gauche fonctionne correctement
         <section className="bg-white min-h-screen flex flex-col md:flex-row pt-[80px]! md:items-start">
+            <Seo 
+                title={`${tenue.title} | Algueye Dakar`} 
+                description={tenue.description}
+                ogImage={tenue.image}
+            />
 
             {/* Colonne gauche - Info STATIQUE */}
             <div className="w-full md:w-5/12 md:sticky md:top-[80px] p-8! md:p-16! lg:p-24! flex flex-col justify-center min-h-[50vh] md:min-h-[calc(100vh-80px)]">

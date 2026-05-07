@@ -5,21 +5,29 @@ import { HorizontalGallery } from "../components/sections/HorizontalGallery";
 import Testimonials from "../components/sections/Testimonials";
 import PartnersSection from "../components/sections/PartnersSection";
 import InstagramFeed from "../components/sections/InstagramFeed";
-import CircularGallery from "../components/atoms/CircularGallery";
-import { collections } from "../data/collections.data";
 import { Link } from "react-router-dom";
+import Seo from "../components/seo/Seo";
 import ng1 from '../assets/tenues/naru-goor/img1.png';
+import { collections } from "../data/collections.data";
+import CircularGallery from "../components/atoms/CircularGallery";
 
 export default function Home() {
+
     // Map collections to the format expected by CircularGallery
     // Duplicate to ensure the gallery is full enough
-    const galleryItems = [...collections, ...collections].map(collection => ({
-        image: collection.img,
-        text: collection.title
-    }));
+    const galleryItems = collections.length > 0 
+        ? [...collections, ...collections].map(collection => ({
+            image: collection.img,
+            text: collection.title
+          }))
+        : [];
 
     return (
         <div className="min-h-screen ">
+            <Seo
+                title="Accueil | Algueye Dakar" 
+                description="Découvrez Algueye Dakar, atelier de couture de luxe. Des créations sur mesure alliant élégance, tradition et modernité."
+            />
             <Hero></Hero>
             <Ticker></Ticker>
             <StorySection></StorySection>
@@ -41,15 +49,16 @@ export default function Home() {
             </div>
             <div className="bg-white pb-5!" style={{ height: '600px', position: 'relative' }}>
 
-                <CircularGallery
-                    items={galleryItems}
-                    bend={1}
-                    textColor="#000"
-                    borderRadius={0}
-                    font="bold 30px serif"
-                    scrollSpeed={2}
-                    scrollEase={0.05}
-                />
+                    <CircularGallery
+                        items={galleryItems}
+                        bend={1}
+                        textColor="#000"
+                        borderRadius={0}
+                        font="bold 30px serif"
+                        scrollSpeed={2}
+                        scrollEase={0.05}
+                    />
+                
             </div>
             <div className="bg-white border-b-1 border-gold-dark pb-15! flex justify-center ">
                 <Link to="/collections" className="btn-gold mt-4!">

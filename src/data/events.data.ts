@@ -29,12 +29,12 @@ export interface Event {
 export const EVENTS: Event[] = [
     {
         id: 1,
-        slug: 'collection-ete-2025-harmattan',
+        slug: 'collection-ete-2026-harmattan',
         category: 'Défilés',
         date: '14',
         month: 'Juin',
-        year: '2025',
-        title: 'Collection Été 2025 — « Harmattan »',
+        year: '2026',
+        title: 'Collection Été 2026 — « Harmattan »',
         subtitle: 'Grand défilé de Haute Couture',
         location: 'Place du Souvenir Africain',
         city: 'Dakar, Sénégal',

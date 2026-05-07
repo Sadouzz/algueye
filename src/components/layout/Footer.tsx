@@ -73,6 +73,7 @@ export default function Footer() {
     const navLinks = [
         { to: '/', label: 'Accueil' },
         { to: '/about', label: 'Notre Maison' },
+        { to: '/news', label: 'Nouveautés' },
         { to: '/confections', label: 'Confections' },
         { to: '/collections', label: 'Collections' },
         { to: '/tenues', label: 'Tenues' },

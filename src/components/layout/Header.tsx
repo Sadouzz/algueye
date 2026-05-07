@@ -40,6 +40,7 @@ export default function Header() {
                         <HeaderLink to="/" label="Accueil" />
                         <HeaderLink to="/about" label="À propos" />
                         <HeaderLink to="/events" label="Evènements" />
+                        <HeaderLink to="/news" label="Nouveautés" />
                     </div>
 
                     {/* --- LOGO CENTRE (Desktop) / LOGO + MENU (Mobile) --- */}
@@ -65,11 +66,7 @@ export default function Header() {
                     </NavLink>
 
                     {/* Mobile: ALGUEYE à gauche + MENU à droite */}
-                    <div className="flex lg:hidden w-full h-full items-center justify-between px-4 bg-white">
-                        <NavLink to="/" className="font-black text-lg tracking-[0.12em] uppercase text-black">
-                            ALGUEYE
-                        </NavLink>
-
+                    <div className="flex lg:hidden w-full h-full items-center justify-between px-4! bg-white">
                         <button
                             onClick={() => setMenuOpen(true)}
                             className="flex items-center gap-2 bg-transparent border-0 cursor-pointer font-bold tracking-widest text-xs uppercase text-black"
@@ -109,13 +106,14 @@ export default function Header() {
                     { label: 'Facebook', link: 'https://facebook.com' }
                 ]}
                 items={[
-                    { label: 'Accueil', ariaLabel: 'Accueil', link: '/' },
-                    { label: 'À propos', ariaLabel: 'À propos', link: '/about' },
-                    { label: 'Evènements', ariaLabel: 'Evènements', link: '/events' },
-                    { label: 'Confections', ariaLabel: 'Confections', link: '/confections' },
-                    { label: 'Collections', ariaLabel: 'Collections', link: '/collections' },
-                    { label: 'Tenues', ariaLabel: 'Tenues', link: '/tenues' },
-                    { label: 'Naru Goor', ariaLabel: 'Naru Goor', link: '/naru-goor' }
+                    {label: 'Accueil', ariaLabel: 'Accueil', link: '/'},
+                    {label: 'À propos', ariaLabel: 'À propos', link: '/about'},
+                    {label: 'Evènements', ariaLabel: 'Evènements', link: '/events'},
+                    {label: 'Nouveautés', ariaLabel: 'Nouveautés', link: '/news'},
+                    {label: 'Confections', ariaLabel: 'Confections', link: '/confections'},
+                    {label: 'Collections', ariaLabel: 'Collections', link: '/collections'},
+                    {label: 'Tenues', ariaLabel: 'Tenues', link: '/tenues'},
+                    {label: 'Naru Goor', ariaLabel: 'Naru Goor', link: '/naru-goor'}
                 ]}
             />
         </>

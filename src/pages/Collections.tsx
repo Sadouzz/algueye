@@ -1,6 +1,7 @@
 import PageHeroSection from "../components/sections/PageHeroSection";
 import ServiceElement from "../components/sections/ServiceElement";
-import { collections } from "../data/collections.data.ts";
+import { collections } from "../data/collections.data";
+import Seo from "../components/seo/Seo";
 import useIsDesktop from "../hooks/useIsDesktop";
 
 interface Collection {
@@ -16,8 +17,14 @@ interface Collection {
 
 export default function Collections() {
     const isDesktop = useIsDesktop();
+
     return (
         <>
+            <Seo 
+                title="Nos Collections | Algueye Dakar" 
+                description="Découvrez l'ensemble de nos collections Haute Couture et Prêt-à-porter, pensées pour l'élégance absolue."
+                url="https://www.algueyedakar.com/collections"
+            />
             <PageHeroSection
                 contentMiniBar="NOS COLLECTIONS"
                 firstTitle="De l'esquisse à la création d'exception,"

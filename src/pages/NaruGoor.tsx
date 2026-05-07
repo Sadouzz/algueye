@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { tenues } from '../data/tenues.data';
 import TenueCard from '../components/atoms/tenues/TenueCard';
+import Seo from "../components/seo/Seo";
 import ng1 from '../assets/tenues/naru-goor/img1.png';
 import ng2 from '../assets/tenues/naru-goor/img2.png';
 import ng3 from '../assets/tenues/naru-goor/img3.png';
@@ -27,6 +28,11 @@ const VALUES = [
 export default function NaruGoor() {
     return (
         <div className="bg-white min-h-screen">
+            <Seo 
+                title="Naru Goor | Élégance Masculine par Algueye Dakar" 
+                description="Découvrez Naru Goor, la sous-marque exclusivement masculine d'ALGUEYE Dakar. L'alliance parfaite entre tradition africaine et coupe contemporaine."
+                url="https://www.algueyedakar.com/naru-goor"
+            />
 
             {/* ── Hero ─────────────────────────────────────────── */}
             <div className="relative h-screen flex items-end overflow-hidden bg-black">

@@ -14,6 +14,7 @@ import NotFound from "./pages/NotFound.tsx";
 import Tenues from "./pages/Tenues.tsx";
 import Confections from "./pages/Confections.tsx";
 import NaruGoor from "./pages/NaruGoor.tsx";
+import News from "./pages/News.tsx";
 import FloatingContact from "./components/atoms/FloatingContact.tsx";
 import TenueTemplate from "./pages/TenueTemplate.tsx";
 import EventTemplate from "./pages/EventTemplate.tsx";
@@ -59,6 +60,7 @@ function AppContent() {
           <Route path="/events" element={<Evenements />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/naru-goor" element={<NaruGoor />} />
+          <Route path="/news" element={<News />} />
           <Route path="/collections/tenues/:slug" element={<TenueTemplate />} />
           <Route path="/events/:slug" element={<EventTemplate />} />
 

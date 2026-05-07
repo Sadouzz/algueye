@@ -7,6 +7,7 @@ import imgB2 from '../assets/tenues/B2.jpeg';
 import imgB3 from '../assets/tenues/B3.jpeg';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import Seo from "../components/seo/Seo";
 
 // --- SVGs et Icônes ---
 // const MainLogo = () => (
@@ -220,6 +221,11 @@ const MenuSection = () => (
 export default function Confections() {
     return (
         <main className="flex min-h-svh flex-col">
+            <Seo 
+                title="Nos Confections | Algueye Dakar" 
+                description="Découvrez le savoir-faire de l'atelier Algueye Dakar. Des confections uniques et sur mesure, de la broderie complexe aux pièces intemporelles."
+                url="https://www.algueyedakar.com/confections"
+            />
             <div id="main-content">
                 <HeroSection />
 

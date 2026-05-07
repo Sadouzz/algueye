@@ -1,23 +1,46 @@
 import { useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { EVENTS } from '../data/events.data';
+import { useEvents } from '../hooks/useEvents';
+import Seo from '../components/seo/Seo';
 
 export default function EventTemplate() {
     const { slug } = useParams();
     const navigate = useNavigate();
 
-    const event = EVENTS.find(e => e.slug === slug);
+    const { events, loading } = useEvents();
+    const event = events.find(e => e.slug === slug);
 
     useEffect(() => {
-        if (!event) {
+        if (!loading && !event) {
             navigate('/events');
         }
-    }, [event, navigate]);
+    }, [event, navigate, loading]);
 
+    if (loading) return (
+        <div className="min-h-screen bg-white flex flex-col md:flex-row pt-32! animate-pulse">
+            <div className="w-full md:w-5/12 p-8! md:p-16! lg:p-24! space-y-6">
+                <div className="h-4 w-32 bg-gray-100"></div>
+                <div className="h-16 w-full bg-gray-100"></div>
+                <div className="h-4 w-24 bg-gray-100"></div>
+                <div className="h-32 w-full bg-gray-50"></div>
+            </div>
+            <div className="w-full md:w-7/12 p-6! md:p-12! lg:p-20!">
+                <div className="w-full h-full min-h-[60vh] bg-gray-50"></div>
+            </div>
+            <div className="fixed inset-0 flex items-center justify-center z-50 pointer-events-none">
+                <div className="w-12 h-12 border-2 border-gold/20 border-t-gold rounded-full animate-spin"></div>
+            </div>
+        </div>
+    );
     if (!event) return null;
 
     return (
         <section className="bg-white min-h-screen flex flex-col md:flex-row pt-[80px]! md:items-start">
+            <Seo 
+                title={`${event.title} | Événements Algueye`} 
+                description={event.description}
+                ogImage={event.image}
+            />
 
             {/* Colonne gauche - Info STATIQUE */}
             <div className="w-full md:w-5/12 md:sticky md:top-[80px] p-8! md:p-16! lg:p-24! flex flex-col justify-center min-h-[50vh] md:min-h-[calc(100vh-80px)]">

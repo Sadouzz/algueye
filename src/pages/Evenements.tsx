@@ -4,9 +4,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import PageHeroSection from '../components/sections/PageHeroSection';
 import useIsDesktop from '../hooks/useIsDesktop';
 import { Link } from 'react-router-dom';
+import Seo from '../components/seo/Seo';
 gsap.registerPlugin(ScrollTrigger);
 
-import { type Event, type EventCategory, EVENTS, CATEGORIES } from '../data/events.data';
+import { type EventCategory, CATEGORIES } from '../data/events.data';
+import { useEvents, type EventData as Event } from '../hooks/useEvents';
 
 const STATUS_STYLES: Record<Event['status'], React.CSSProperties> = {
     'À venir': { background: 'rgba(201,168,76,0.15)', color: 'var(--color-gold-dark)', border: '1px solid rgba(201,168,76,0.3)' },
@@ -217,19 +219,58 @@ function EventCard({ event, isDesktop }: { event: Event; isDesktop: boolean }) {
     );
 }
 
+// ─── Composant Loading (Skeleton / Premium) ──────────────────
+function EventsLoading() {
+    return (
+        <div className="min-h-screen bg-white pt-32! px-10! lg:px-20!">
+            <div className="animate-pulse">
+                {/* Hero Skeleton */}
+                <div className="h-4 w-32 bg-gray-100 mb-4"></div>
+                <div className="h-12 w-2/3 bg-gray-100 mb-2"></div>
+                <div className="h-12 w-1/2 bg-gray-100 mb-12"></div>
+                
+                {/* Event Row Skeleton */}
+                {[1, 2, 3].map((i) => (
+                    <div key={i} className="flex flex-col md:flex-row gap-8 py-12 border-t border-gray-100">
+                        <div className="w-full md:w-48 aspect-[4/5] bg-gray-50"></div>
+                        <div className="flex-1 space-y-4">
+                            <div className="h-4 w-24 bg-gray-100"></div>
+                            <div className="h-8 w-3/4 bg-gray-100"></div>
+                            <div className="h-20 w-full bg-gray-50"></div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+            
+            {/* Overlay Loader */}
+            <div className="fixed inset-0 flex items-center justify-center z-50 pointer-events-none">
+                <div className="flex flex-col items-center">
+                    <div className="w-16 h-16 border-2 border-gold/20 border-t-gold rounded-full animate-spin mb-4"></div>
+                    <span className="font-serif italic text-gold tracking-widest uppercase text-xs animate-pulse">
+                        Algueye Agenda
+                    </span>
+                </div>
+            </div>
+        </div>
+    );
+}
+
 // ─── Composant principal ──────────────────────────────────────
 export default function Evenements() {
     const isDesktop = useIsDesktop();
+    const { events, loading, error } = useEvents();
     const [activeCategory, setActiveCategory] = useState<EventCategory>('Tous');
     const listRef = useRef<HTMLDivElement>(null);
     const featuredRef = useRef<HTMLDivElement>(null);
 
     const filtered = activeCategory === 'Tous'
-        ? EVENTS
-        : EVENTS.filter(e => e.category === activeCategory);
+        ? events
+        : events.filter(e => e.category === activeCategory);
 
     const upcoming = filtered.filter(e => e.status === 'À venir');
     const past = filtered.filter(e => e.status === 'Passé');
+
+    const featuredEvents = events.filter(e => e.featured && e.status === 'À venir');
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -266,8 +307,24 @@ export default function Evenements() {
         return () => ctx.revert();
     }, [activeCategory]);
 
+    if (loading) {
+        return <EventsLoading />;
+    }
+
+    if (error) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-white">
+                <p className="text-red-500 font-sans">Erreur: {error}</p>
+            </div>
+        );
+    }
+
     return (
         <>
+            <Seo 
+                title="Agenda & Événements | Algueye Dakar" 
+                description="Suivez l'agenda de la maison Algueye Dakar. Défilés, showcases et rencontres exclusives à Dakar et dans le monde."
+            />
             {/* ── Hero ──────────────────────────────────────── */}
             <PageHeroSection
                 contentMiniBar="AGENDA ALGUEYE"
@@ -276,9 +333,9 @@ export default function Evenements() {
             />
 
             {/* ── Événement phare en vedette ────────────────── */}
-            {EVENTS.filter(e => e.featured && e.status === 'À venir').length > 0 && (
+            {featuredEvents.length > 0 && (
                 <section className="bg-black py-20!" ref={featuredRef}>
-                    <div className={`container`}>
+                    <div className="container">
                         <div className="relative flex w-full flex-col-reverse ">
                             <h2 className="uppercase font-bold text-balance text-4xl lg:text-7xl! block">
                                 Événement
@@ -289,7 +346,7 @@ export default function Evenements() {
                             </span>
                         </div>
 
-                        {EVENTS.filter(e => e.featured && e.status === 'À venir').slice(0, 1).map(event => (
+                        {featuredEvents.slice(0, 1).map(event => (
                             <div
                                 key={event.id}
                                 style={{

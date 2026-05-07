@@ -1,9 +1,14 @@
 import TenueGallery from '../components/atoms/tenues/TenueGallery';
 import { tenues } from '../data/tenues.data';
+import Seo from '../components/seo/Seo';
 
 export default function Tenues() {
     return (
         <div className="bg-white min-h-screen pt-[120px]! pb-20">
+            <Seo 
+                title="Nos Tenues | Algueye Dakar" 
+                description="Explorez notre galerie de tenues exclusives. De la Haute Couture au Prêt-à-Porter, découvrez le raffinement Algueye."
+            />
             <div className="container mx-auto! px-4! mb-12!">
                 <div className="relative flex w-full flex-col-reverse pt-15! text-center">
                     <h2 className="uppercase font-bold text-black text-balance text-7xl lg:text-8xl block">

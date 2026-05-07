@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import PageHeroSection from '../components/sections/PageHeroSection';
 import useIsDesktop from '../hooks/useIsDesktop';
+import Seo from '../components/seo/Seo';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -128,6 +129,10 @@ export default function About() {
 
     return (
         <>
+            <Seo 
+                title="À Propos | Algueye Dakar" 
+                description="Découvrez l'histoire de la maison Algueye Dakar, fondée par Abdou Lahad GUEYE. Excellence, authenticité et intemporalité."
+            />
             {/* ── Hero ──────────────────────────────────────── */}
             <PageHeroSection
                 contentMiniBar="NOTRE MAISON"

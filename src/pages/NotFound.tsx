@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/imgHeroHome.png';
+import Seo from '../components/seo/Seo';
 
 const NotFound: React.FC = () => {
     return (
         <div className="relative flex items-center justify-center min-h-screen overflow-hidden bg-black text-white">
+            <Seo title="404 - Page non trouvée | Algueye Dakar" />
             {/* Décoration en arrière-plan */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <span className="text-[20vw] font-black opacity-5 select-none">

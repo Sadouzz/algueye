@@ -4,6 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import PageHeroSection from '../components/sections/PageHeroSection';
 import useIsDesktop from '../hooks/useIsDesktop';
 import img1 from '../assets/img1.jpg'; // We can use this as a banner image
+import Seo from '../components/seo/Seo';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -67,6 +68,10 @@ export default function Contact() {
 
     return (
         <>
+            <Seo 
+                title="Contact | Algueye Dakar" 
+                description="Prenez rendez-vous avec la maison Algueye Dakar pour vos créations sur-mesure. Notre atelier est situé à Dakar, Sénégal."
+            />
             {/* ── Hero ──────────────────────────────────────── */}
             <PageHeroSection
                 contentMiniBar="CONTACT & RÉSERVATIONS"
