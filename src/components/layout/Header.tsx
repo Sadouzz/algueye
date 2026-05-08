@@ -108,7 +108,7 @@ export default function Header() {
                             className="flex items-center justify-center transition-transform duration-500 group-hover:-translate-y-[250%]"
                             style={{ transitionTimingFunction: 'cubic-bezier(0.49, 0.03, 0.13, 0.99)' }}
                         >
-                            <span className="font-black text-xl md:text-2xl lg:text-3xl tracking-[0.1em] lg:tracking-[0.15em] uppercase" style={{ color: 'var(--header-text)' }}>
+                            <span className="font-black text-md md:text-lg lg:text-xl tracking-[0.1em] lg:tracking-[0.15em] uppercase" style={{ color: 'var(--header-text)' }}>
                                 ALGUEYE DAKAR
                             </span>
                         </div>
@@ -163,12 +163,9 @@ export default function Header() {
                 ]}
                 items={[
                     {label: 'Accueil', ariaLabel: 'Accueil', link: '/'},
-                    {label: 'À propos', ariaLabel: 'À propos', link: '/about'},
+                    {label: 'Notre Maison', ariaLabel: 'Notre Maison', link: '/about'},
                     {label: 'Evènements', ariaLabel: 'Evènements', link: '/events'},
-                    {label: 'Nouveautés', ariaLabel: 'Nouveautés', link: '/news'},
-                    {label: 'Confections', ariaLabel: 'Confections', link: '/confections'},
                     {label: 'Collections', ariaLabel: 'Collections', link: '/collections'},
-                    {label: 'Tenues', ariaLabel: 'Tenues', link: '/tenues'},
                     {label: 'Naru Goor', ariaLabel: 'Naru Goor', link: '/naru-goor'}
                 ]}
             />

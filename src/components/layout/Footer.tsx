@@ -73,10 +73,10 @@ export default function Footer() {
     const navLinks = [
         { to: '/', label: 'Accueil' },
         { to: '/about', label: 'Notre Maison' },
-        { to: '/news', label: 'Nouveautés' },
-        { to: '/confections', label: 'Confections' },
+        // { to: '/news', label: 'Nouveautés' },
+        // { to: '/confections', label: 'Confections' },
         { to: '/collections', label: 'Collections' },
-        { to: '/tenues', label: 'Tenues' },
+        // { to: '/tenues', label: 'Tenues' },
         { to: '/naru-goor', label: 'Naru Goor' },
         { to: '/events', label: 'Événements' },
         { to: '/contact', label: 'Contact' },
