@@ -37,7 +37,7 @@ export default function NaruGoor() {
             {/* ── Hero ─────────────────────────────────────────── */}
             <div className="relative h-screen flex items-end overflow-hidden bg-black" data-header-theme="black">
                 <div
-                    className="absolute inset-0 bg-cover bg-center opacity-60"
+                    className="absolute inset-0 bg-cover bg-top opacity-60"
                     style={{ backgroundImage: `url(${ng1})` }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />

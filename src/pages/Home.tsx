@@ -66,13 +66,13 @@ export default function Home() {
             </section>
 
             {/* Section Naru Goor — Editorial */}
-            <div className="w-full bg-black flex flex-col md:flex-row min-h-[50vh]! overflow-hidden" data-header-theme="black">
+            <div className="w-full bg-black flex flex-col md:flex-row min-h-[40vh]! overflow-hidden" data-header-theme="black">
                 {/* Colonne image */}
-                <div className="relative w-full md:w-1/2 h-[50vh] md:h-auto overflow-hidden">
+                <div className="relative w-full md:w-1/2 h-[40vh] md:h-[80vh] overflow-hidden">
                     <img
                         src={ng1}
                         alt="Naru Goor"
-                        className="w-full h-full object-cover object-center opacity-70 hover:opacity-90 hover:scale-105 transition-all! duration-700"
+                        className="w-full h-full object-cover object-top opacity-70 hover:opacity-90 hover:scale-105 transition-all! duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent md:bg-gradient-to-r" />
                 </div>

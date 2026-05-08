@@ -120,10 +120,10 @@ export const HorizontalGallery = () => {
               <img
                 src={zone.image}
                 alt={zone.title}
-                className="w-full h-full object-cover opacity-60 grayscale md:group-hover:grayscale-0 md:group-hover:scale-105 transition-all duration-700 ease-out mix-blend-luminosity md:group-hover:mix-blend-normal"
+                className="w-full h-full object-cover object-top opacity-60 grayscale md:group-hover:grayscale-0 md:group-hover:scale-105 transition-all duration-700 ease-out mix-blend-luminosity md:group-hover:mix-blend-normal"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 md:via-gold/40 to-transparent p-6 md:p-12! flex flex-col justify-between">
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 md:via-gold/5 to-transparent p-6 md:p-12! flex flex-col justify-between">
                 <div className="flex justify-between items-center">
                   <div className={`py-1! px-3! uppercase text-[10px] md:text-xs rounded-xs text-gold-dark bg-gold-light border border-gold-dark`}>
                     <span>
@@ -139,10 +139,10 @@ export const HorizontalGallery = () => {
                 </div>
 
                 <div>
-                  <h3 className="text-3xl md:text-4xl lg:text-5xl font-black uppercase text-white mb-2 md:mb-4">
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-black uppercase text-white mb-2 md:mb-4">
                     {zone.title}
                   </h3>
-                  <p className="text-sm md:text-base text-gray-200 md:text-white">
+                  <p className="text-xs md:text-sm text-gray-200 md:text-white">
                     {zone.description}
                   </p>
                   <div className="w-12 h-1 bg-white mb-2 md:mb-6 mt-4" />

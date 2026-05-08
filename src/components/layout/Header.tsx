@@ -74,7 +74,7 @@ export default function Header() {
         <>
             <header
                 ref={headerRef}
-                className={`raleway overflow-hidden w-[calc(100vw-32px)] lg:w-[calc(100vw-64px)] max-w-[1800px] shadow-sm border header-theme-${theme}`}
+                className={`font-serif overflow-hidden w-[calc(100vw-32px)] lg:w-[calc(100vw-64px)] max-w-[1800px] shadow-sm border header-theme-${theme}`}
                 style={{
                     position: 'fixed',
                     top: '10px',
@@ -93,15 +93,15 @@ export default function Header() {
                     {/* --- GAUCHE (Desktop uniquement) --- */}
                     <div className="hidden lg:flex flex-1 h-full items-center justify-start border-r border-[var(--header-border)] transition-colors duration-400">
                         <HeaderLink to="/" label="Accueil" />
-                        <HeaderLink to="/about" label="À propos" />
+                        <HeaderLink to="/about" label="Notre maison" />
                         <HeaderLink to="/events" label="Evènements" />
-                        <HeaderLink to="/news" label="Nouveautés" />
+                        {/* <HeaderLink to="/news" label="Nouveautés" /> */}
                     </div>
 
                     {/* --- LOGO CENTRE (Desktop) / LOGO + MENU (Mobile) --- */}
                     <NavLink
                         to="/"
-                        className="group lg:flex h-full w-[250px] md:w-[350px] lg:w-[500px] shrink-0 flex-col items-center justify-center overflow-hidden cursor-pointer relative mx-auto lg:mx-0 border-r border-[var(--header-border)] lg:border-r-0 lg:border-l-0 border-l transition-colors duration-400"
+                        className="group flex h-full w-[50%] md:w-[50%] lg:w-[500px] shrink-0 flex-col items-center justify-center overflow-hidden cursor-pointer relative mx-auto lg:mx-0 border-r border-[var(--header-border)] lg:border-r-0 lg:border-l-0 border-l transition-colors duration-400"
                         style={{ backgroundColor: 'var(--header-bg)' }}
                     >
                         <div
@@ -113,7 +113,7 @@ export default function Header() {
                             </span>
                         </div>
                         <p
-                            className="absolute w-full translate-y-[250%] text-center text-lg lg:text-xl font-serif italic text-gold transition-transform duration-500 group-hover:translate-y-0"
+                            className="absolute w-full translate-y-[250%] text-center text-lg lg:text-2xl font-serif italic text-gold-dark transition-transform duration-500 group-hover:translate-y-0"
                             style={{ transitionTimingFunction: 'cubic-bezier(0.49, 0.03, 0.13, 0.99)' }}
                         >
                             Les détails, où que vous soyez.
@@ -121,7 +121,7 @@ export default function Header() {
                     </NavLink>
 
                     {/* Mobile: ALGUEYE à gauche + MENU à droite */}
-                    <div className="flex lg:hidden w-full h-full items-center justify-between px-4! transition-colors duration-400" style={{ backgroundColor: 'var(--header-bg)' }}>
+                    <div className="flex lg:hidden w-[50%] md:w-[50%] h-full items-center px-4! text-center! justify-center transition-colors duration-400" style={{ backgroundColor: 'var(--header-bg)' }}>
                         <button
                             onClick={() => setMenuOpen(true)}
                             className="flex items-center gap-2 bg-transparent border-0 cursor-pointer font-bold tracking-widest text-xs uppercase"
@@ -141,9 +141,9 @@ export default function Header() {
 
                     {/* --- DROITE (Desktop uniquement) --- */}
                     <div className="hidden lg:flex flex-1 h-full items-center justify-end border-l border-[var(--header-border)] transition-colors duration-400">
-                        <HeaderLink to="/confections" label="Confections" />
+                        {/* <HeaderLink to="/confections" label="Confections" /> */}
                         <HeaderLink to="/collections" label="Collections" />
-                        <HeaderLink to="/tenues" label="Tenues" />
+                        {/* <HeaderLink to="/tenues" label="Tenues" /> */}
                         <HeaderLink to="/naru-goor" label="Naru Goor" />
                     </div>
 
@@ -183,7 +183,7 @@ function HeaderLink({ to, label }: { to: string; label: string }) {
         <NavLink
             to={to}
             className={({ isActive }) => `
-                group/link relative flex h-full grow items-center justify-center px-2 xl:px-4 font-bold uppercase text-[10px] xl:text-xs tracking-widest transition-all duration-400
+                group/link relative flex h-full grow items-center justify-center px-2 xl:px-4 font-bold uppercase text-[10px] xl:text-base tracking-widest transition-all duration-400
                 border-r border-[var(--header-border)] last:border-r-0 hover:bg-black/5
                 ${isActive ? "bg-gold !text-black" : "text-[var(--header-text)]"}
             `}

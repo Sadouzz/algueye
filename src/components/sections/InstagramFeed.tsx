@@ -20,7 +20,7 @@ export default function InstagramFeed() {
                     </span>
                 </div>
                 <a 
-                    href="https://instagram.com" 
+                    href="https://www.instagram.com/algueye_dakar/" 
                     target="_blank" 
                     rel="noreferrer"
                     className="btn-gold self-start md:self-auto mb-5!"
@@ -38,7 +38,7 @@ export default function InstagramFeed() {
                 {images.map((src, index) => (
                     <a 
                         key={index} 
-                        href="https://instagram.com" 
+                        href="https://www.instagram.com/algueye_dakar/" 
                         target="_blank" 
                         rel="noreferrer"
                         className="relative block aspect-square group overflow-hidden"

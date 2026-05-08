@@ -1,119 +1,88 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import PageHeroSection from '../components/sections/PageHeroSection';
-import useIsDesktop from '../hooks/useIsDesktop';
 import Seo from '../components/seo/Seo';
+import StoryChapter from '../components/sections/StoryChapter';
+
+// Assets
+import childhoodImg from '../assets/story/childhood.png';
+import videoMp4 from '../assets/vidCouture.mp4';
+import dakarImg from '../assets/story/dakar.png';
+import artisanImg from '../assets/story/artisan.png'
+import imgA7 from '../assets/tenues/A7.jpeg';
+import imgA9 from '../assets/tenues/A9.jpeg';
+import imgB1 from '../assets/tenues/B1.jpeg';
+import imgB2 from '../assets/tenues/B2.jpeg';
+import imgB3 from '../assets/tenues/B3.jpeg';
+import imgWorld1 from '../assets/tenues/DSC02056.jpeg';
+import imgWorld2 from '../assets/tenues/DSC02098.jpeg';
+import imgWorld3 from '../assets/tenues/DSC02151.jpeg';
+import heroImg from '../assets/imgHeroHomeBlack.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// ─── Données ──────────────────────────────────────────────────
-const VALUES = [
-    {
-        icon: '✦',
-        label: 'Excellence',
-        desc: "Chaque point de couture, chaque coupe est pensé avec une exigence absolue. L'imperfection n'a pas sa place dans notre atelier.",
-    },
-    {
-        icon: '◈',
-        label: 'Authenticité',
-        desc: "Nos créations s'ancrent dans l'identité africaine — ses textures, ses pigments, ses rythmes — pour rayonner sur la scène internationale.",
-    },
-    {
-        icon: '◎',
-        label: 'Intemporalité',
-        desc: 'Nous créons contre la tyrannie des tendances. Une pièce Algueye doit traverser les décennies sans jamais vieillir.',
-    },
-    {
-        icon: '⬡',
-        label: 'Artisanat',
-        desc: "Le savoir-faire est transmis de main en main. Chaque broderie, chaque drapé est l'œuvre d'artisans formés avec patience.",
-    },
-];
+const IngredientsDetailSection = () => (
+    <section className="relative z-10 mb-14 flex max-w-[120rem] items-center justify-center bg-black lg:my-24 lg:px-[64px]">
+        <div className="relative mx-6 my-6 grid grid-cols-1 items-center gap-8 text-center lg:mx-0 lg:my-0 lg:grid-cols-12 lg:gap-20 lg:text-left">
+            <div className="relative row-start-2 aspect-square lg:col-span-6 lg:row-start-auto">
+                <div className="h-full w-full">
+                    <img alt="Atelier de couture haute couture" loading="lazy" src={imgA7} className="absolute inset-0 h-full w-full object-cover shadow-2xl" />
+                </div>
+            </div>
+            <div className="flex flex-col gap-8 lg:col-span-6 lg:col-start-7">
+                <div className="relative mt-16 flex flex-col gap-8 md:mt-4 lg:-mt-4">
+                    <div className="relative flex w-full flex-col-reverse lg:text-start text-center mb-4!">
+                        <h2 className="uppercase font-bold text-4xl lg:text-6xl! text-balance block">
+                            Le secret de
+                            <em style={{ color: 'var(--color-gold-dark)' }}> nos créations</em>
+                        </h2>
+                        <span className="w-full font-serif rotate-[-2deg] lg:text-start text-center text-gold font-quickbrush mb-3! xl:-mb-2 text-4xl lg:text-5xl block">
+                            L'exigence absolue
+                        </span>
+                    </div>
+                    <p>Chez Algueye DAKAR, nous croyons obstinément que l'élégance véritable ne se précipite pas. Alors que l'industrie s'accélère, nous chérissons l'art lent de la haute couture, avec un travail manuel méticuleux et des finitions qui exigent des dizaines d'heures d'attention.</p>
+                </div>
+                <div className="grid gap-x-14 gap-y-8 md:grid-cols-2">
+                    <div className="flex flex-col gap-3">
+                        <h3 className="text-xl font-bold text-gold-light">Coupe millimétrée</h3>
+                        <p className="text-balance text-base">Notre processus sur mesure permet à chaque étoffe de déployer tout son potentiel pour épouser parfaitement votre silhouette...</p>
+                    </div>
+                    <div className="flex flex-col gap-3">
+                        <h3 className="text-xl font-bold text-gold-light">Matières d'exception</h3>
+                        <p className="text-balance text-base">Nos créations ne sont pas seulement majestueuses, elles sont confectionnées avec des tissus nobles qui respirent et subliment le porteur...</p>
+                    </div>
+                    <div className="flex flex-col gap-3">
+                        <h3 className="text-xl font-bold text-gold-light">Durabilité intemporelle</h3>
+                        <p className="text-balance text-base">En prenant le temps de renforcer chaque point à la main, nous garantissons la longévité de votre vêtement, de génération en génération...</p>
+                    </div>
+                    <div className="flex flex-col gap-3">
+                        <h3 className="text-xl font-bold text-gold-light">Finitions sophistiquées</h3>
+                        <p className="text-balance text-base">Le travail acharné de nos maîtres-tailleurs donne à nos tenues cette allure prestigieuse et ce tombé irréprochable...</p>
+                    </div>
+                </div>
+            </div>
 
-const TIMELINE = [
-    { year: '2012', event: 'Fondation de la marque ALGUEYE par Abdou Lahad GUEYE.' },
-    { year: '2019', event: 'Première collection capsule présentée à la FESPAD.' },
-    { year: '2020', event: 'Ouverture du studio sur mesure, Dakar.' },
-    { year: '2021', event: 'Participation à la semaine de la mode de Dakar.' },
-    { year: '2022', event: 'Collaboration internationale — partenariat Paris & Lagos.' },
-    { year: '2023', event: 'Lancement de la ligne Prêt-à-Porter « Silhouettes ».' },
-    { year: '2024', event: 'Exposition permanente « Racines » — Musée des Civilisations Noires.' },
-    { year: '2025', event: 'Algueye, Maison de mode reconnue sur 30+ marchés.' },
-];
+            {/* Coins Décoratifs */}
+            {/* <div aria-hidden="true" className="absolute size-[120px] lg:size-[175px] -top-3 -left-3 lg:-top-5 lg:-left-5 scale-x-[-1]" style={{ maskSize: '100% 100%', maskImage: 'url("/images/image_corner.png")', backgroundColor: 'var(--color-gold)' }}></div>
+            <div aria-hidden="true" className="absolute size-[120px] lg:size-[175px] -top-3 -right-3 lg:-top-5 lg:-right-5" style={{ maskSize: '100% 100%', maskImage: 'url("/images/image_corner.png")', backgroundColor: 'var(--color-gold)' }}></div>
+            <div aria-hidden="true" className="absolute size-[120px] lg:size-[175px] -bottom-3 -right-3 lg:-bottom-5 lg:-right-5 rotate-180 scale-x-[-1]" style={{ maskSize: '100% 100%', maskImage: 'url("/images/image_corner.png")', backgroundColor: 'var(--color-gold)' }}></div>
+            <div aria-hidden="true" className="absolute size-[120px] lg:size-[175px] -bottom-4 -left-3 lg:-bottom-7 lg:-left-7 rotate-180" style={{ maskSize: '100% 100%', maskImage: 'url("/images/image_corner.png")', backgroundColor: 'var(--color-gold)' }}></div> */}
+        </div>
+    </section>
+);
 
-const STATS = [
-    { num: '2012', label: 'Fondée à Dakar' },
-    { num: '100+', label: 'Créations uniques' },
-    { num: '30+', label: 'Pays & marchés' },
-    { num: '∞', label: 'Élégance intemporelle' },
-];
-
-// ─── Composant principal ──────────────────────────────────────
 export default function About() {
-    const isDesktop = useIsDesktop();
-
-    const valuesRef = useRef<HTMLDivElement>(null);
-    const statsRef = useRef<HTMLDivElement>(null);
-    const timelineRef = useRef<HTMLDivElement>(null);
     const manifestoRef = useRef<HTMLDivElement>(null);
+    const [videoLoaded, setVideoLoaded] = useState(false);
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            // Value cards stagger
-            if (valuesRef.current) {
-                gsap.from(valuesRef.current.querySelectorAll('.value-card'), {
-                    y: 60,
-                    opacity: 0,
-                    stagger: 0.15,
-                    duration: 1,
-                    ease: 'power3.out',
-                    scrollTrigger: {
-                        trigger: valuesRef.current,
-                        start: 'top 80%',
-                        once: true,
-                    },
-                });
-            }
-
-            // Stats counter animation
-            if (statsRef.current) {
-                gsap.from(statsRef.current.querySelectorAll('.stat-item'), {
-                    y: 40,
-                    opacity: 0,
-                    stagger: 0.12,
-                    duration: 0.9,
-                    ease: 'power2.out',
-                    scrollTrigger: {
-                        trigger: statsRef.current,
-                        start: 'top 85%',
-                        once: true,
-                    },
-                });
-            }
-
-            // Timeline items
-            if (timelineRef.current) {
-                gsap.from(timelineRef.current.querySelectorAll('.timeline-item'), {
-                    x: -40,
-                    opacity: 0,
-                    stagger: 0.1,
-                    duration: 0.8,
-                    ease: 'power2.out',
-                    scrollTrigger: {
-                        trigger: timelineRef.current,
-                        start: 'top 80%',
-                        once: true,
-                    },
-                });
-            }
-
-            // Manifesto reveal
             if (manifestoRef.current) {
                 gsap.from(manifestoRef.current, {
                     opacity: 0,
                     y: 50,
-                    duration: 1.2,
+                    duration: 1.5,
                     ease: 'power3.out',
                     scrollTrigger: {
                         trigger: manifestoRef.current,
@@ -130,453 +99,265 @@ export default function About() {
     return (
         <>
             <Seo 
-                title="À Propos | Algueye Dakar" 
-                description="Découvrez l'histoire de la maison Algueye Dakar, fondée par Abdou Lahad GUEYE. Excellence, authenticité et intemporalité."
+                title="Notre Histoire | Algueye Dakar" 
+                description="Découvrez l'âme de la maison Algueye Dakar. Un voyage entre tradition, passion et élégance contemporaine."
             />
+            <section className="relative w-full flex justify-center items-center overflow-hidden" style={{ height: "calc(100vh - 80px)" }}>
+                <img
+                    alt="Détail de couture haute couture placeholder"
+                    className="absolute inset-0 z-0 h-full w-full object-cover"
+                    src={imgA7}
+                    style={{
+                        transition: "opacity 0.8s ease",
+                        opacity: videoLoaded ? 0 : 1,
+                    }}
+                />
+                <video
+                    preload="auto"
+                    loop
+                    muted
+                    playsInline
+                    autoPlay
+                    src={videoMp4}
+                    onCanPlayThrough={() => setVideoLoaded(true)}
+                    style={{
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        objectPosition: "center",
+                        zIndex: 0,
+                        transition: "opacity 0.8s ease",
+                        opacity: videoLoaded ? 1 : 0,
+                    }}
+                />
+                {/* Subtle dark overlay to make text pop */}
+                <div className="absolute inset-0 bg-black/20 z-[1]"></div>
+
+                <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 w-full h-full">
+                    <h1 className="text-balance text-4xl leading-[1.1] text-white sm:text-[60px] md:text-7xl font-bold uppercase block shadow-sm">
+                        DES ÉTOFFES NOBLES.<br />
+                        DES COUPES PRÉCISES.<br />
+                        <em style={{ color: 'var(--color-gold-light)', fontStyle: 'normal' }}>UNE ÉLÉGANCE.</em>
+                    </h1>
+
+                    <button className="absolute bottom-[5svh] md:bottom-10" tabIndex={0} aria-label="Faites défiler vers le bas pour explorer nos créations">
+                        <div className="relative flex items-center justify-center gap-3 animate-bounce" aria-hidden="true">
+                            <div className="relative h-[48px] w-[48px] flex items-center justify-center overflow-hidden  border border-solid border-white/50 bg-black/20 backdrop-blur-sm text-white">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                                    <path d="M12 5v14M5 12l7 7 7-7" />
+                                </svg>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+
+                <div className="absolute bottom-0 left-0 right-0 flex uppercase z-10 pointer-events-none">
+                    {/* Bandeau de matières animées */}
+                    <div className="hidden w-full pb-6 md:flex opacity-80 mix-blend-overlay">
+                        <div className="flex w-full flex-1 items-center px-10">
+                            <h2 className="font-bold text-5xl xl:text-[100px] text-white">Soie</h2>
+                            <div className="mx-[20px] h-[3px] flex-1 xl:mx-[64px] bg-white"></div>
+                            <h2 className="font-bold text-5xl xl:text-[100px] text-white">Bazin</h2>
+                            <div className="mx-[20px] h-[3px] flex-1 xl:mx-[64px] bg-white"></div>
+                            <h2 className="font-bold text-5xl xl:text-[100px] text-white">Lin</h2>
+                        </div>
+                    </div>
+                </div>
+            </section>
             {/* ── Hero ──────────────────────────────────────── */}
             <PageHeroSection
-                contentMiniBar="NOTRE MAISON"
-                firstTitle="Façonner l'élégance africaine,"
-                secondTitle="Depuis Dakar, pour le monde entier."
+                contentMiniBar="L'ÂME DE LA MAISON"
+                firstTitle="Plus qu'une marque,"
+                secondTitle="Une histoire de passion et de racines."
             />
 
-            {/* ── Section Histoire (fond blanc, layout 2 col) ── */}
-            <section className="bg-white section-trigger py-0! px-10! lg:px-0! text-black">
+            
 
-                <div className={`${isDesktop ? 'px-12!' : 'px-5'} py-20!`}>
-                    <div className="relative flex w-full flex-col-reverse ">
-                        <h2 className="uppercase font-bold text-balance text-4xl lg:text-7xl! block">
-                            UNE VISION
-                            <em style={{ color: 'var(--color-gold-dark)' }}> Née à Dakar</em>
+            {/* ── Chapitre 1: L'Origine ─────────────────────── */}
+            <StoryChapter
+                chapterNumber="CHAPITRE I"
+                title="L'Origine du Geste"
+                subtitle="L'enfance d'une passion"
+                image={childhoodImg}
+                content={[
+                    "Tout a commencé dans le silence feutré d'un atelier, au rythme régulier d'une machine à coudre qui, pour l'enfant qu'était Abdou Lahad GUEYE, chantait une mélodie de création.",
+                    "Fasciné par la métamorphose d'un simple fil en une parure d'exception, il a appris très tôt que la mode n'était pas qu'une question de tissu, mais une question d'émotion, de respect et de transmission.",
+                    "Chaque création Algueye porte en elle ce souvenir : celui d'un regard émerveillé posé sur le savoir-faire des anciens."
+                ]}
+            />
+
+            {/* ── Chapitre 2: Dakar ────────────────────────── */}
+            <StoryChapter
+                chapterNumber="CHAPITRE II"
+                title="Dakar dans les Veines"
+                subtitle="Le souffle de la ville"
+                image={dakarImg}
+                reverse={true}
+                darkTheme={true}
+                content={[
+                    "Dakar n'est pas seulement notre port d'attache ; c'est notre muse. Entre la poussière ocre, les embruns de l'Atlantique et l'énergie vibrante des marchés, la ville respire à travers nos pièces.",
+                    "Nous puisons dans cette dualité — entre héritage ancestral et modernité urbaine — pour créer un style qui ne ressemble à aucun autre. Un style qui parle au monde depuis le cœur du Sénégal.",
+                    "Porter Algueye, c'est emporter avec soi un fragment de cette lumière dakaroise, solaire et indomptable."
+                ]}
+            />
+
+            {/* ── Chapitre 3: L'Artisanat ───────────────────── */}
+            <StoryChapter
+                chapterNumber="CHAPITRE III"
+                title="La Patience de l'Artisan"
+                subtitle="L'éloge de la lenteur"
+                image={artisanImg}
+                content={[
+                    "Dans un monde qui court après la tendance éphémère, nous avons choisi le chemin de la patience. Chaque broderie, chaque drapé est le fruit de dizaines d'heures de travail minutieux.",
+                    "Nos artisans ne se contentent pas de coudre ; ils tissent des liens entre le passé et le futur. Leurs mains connaissent le secret des matières, la tension juste d'un fil d'or, la souplesse d'un coton tissé.",
+                    "L'excellence n'est pas un but, c'est une exigence quotidienne. C'est ce qui rend chaque pièce Algueye éternelle."
+                ]}
+            />
+
+            {/* ── Valeurs Incarnées ─────────────────────────── */}
+            <section className="bg-black py-24! border-y! border-gray-100!">
+                <div className="container mx-auto! px-6!">
+                    <div className="relative flex w-full flex-col-reverse pt-5! ">
+                        <h2 className="uppercase font-bold text-balance text-3xl lg:text-6xl block">
+                            Nos Valeurs<em className="not-italic" style={{ color: 'var(--color-gold)' }}> Incarnées.</em>
                         </h2>
-                        <span className="w-full rotate-[-2deg] font-serif text-gold font-quickbrush mb-3! xl:-mb-4 text-4xl lg:text-6xl">
-                            Notre Histoire
+                        <span className="w-full rotate-[-2deg] font-serif  text-gold font-quickbrush -mb-2 xl:-mb-4 text-3xl lg:text-5xl">
+                            Esprit Algueye
                         </span>
                     </div>
-                    {/* Section label */}
-
-                    <div
-                        style={{
-                            display: 'grid',
-                            gridTemplateColumns: isDesktop ? '1fr 1fr' : '1fr',
-                            gap: 'clamp(3rem, 6vw, 6rem)',
-                            alignItems: 'start',
-                        }}
-                    >
-                        {/* Colonne gauche : texte */}
-                        <div className='mt-10!'>
-
-                            <p
-                                className="raleway"
-                                style={{
-                                    fontSize: '1rem',
-                                    lineHeight: 1.9,
-                                    color: '#374151',
-                                    marginBottom: '1.5rem',
-                                    maxWidth: '540px',
-                                }}
-                            >
-                                ALGUEYE est une marque de mode fondée en 2012 par Abdou Lahad GUEYE. Le nom de la marque provient des noms et prénoms du fondateur, ce qui la rend vraiment unique. ALGUEYE DAKAR propose des vêtements d’inspiration moderne et ethnique pour hommes et femmes qui sont conçus pour être élégants et authentiques à n’importe quelle phase de la vie.
-                            </p>
-                            <p
-                                className="raleway"
-                                style={{
-                                    fontSize: '1rem',
-                                    lineHeight: 1.9,
-                                    color: '#374151',
-                                    marginBottom: '2rem',
-                                    maxWidth: '540px',
-                                }}
-                            >
-                                Nous fournissons des vêtements chics et glamour en mettant l’accent sur l’agilité et l’adaptabilité. Nos vêtements permettent aux clients d’exprimer leur propre style tout en répondant à leurs besoins quotidiens, leur permettant de rester à jour avec les dernières tendances sans sacrifier l’intemporalité. Avec nos vêtements, vous pouvez créer votre propre look unique pour toute occasion.
-                            </p>
-                            <a href="/collections" className="btn-gold">
-                                <span>Découvrir nos collections</span>
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                    <path d="M5 12h14M12 5l7 7-7 7" />
-                                </svg>
-                            </a>
-                        </div>
-
-                        {/* Colonne droite : image décorative */}
-                        <div
-                            style={{
-                                position: 'relative',
-                                aspectRatio: '4/5',
-                                overflow: 'hidden',
-                                background: 'linear-gradient(160deg, #f9f6ee 0%, #ede8d9 100%)',
-                            }}
-                        >
-                            <div
-                                style={{
-                                    position: 'absolute',
-                                    inset: 0,
-                                    backgroundImage: 'radial-gradient(ellipse 70% 70% at 50% 40%, rgba(139,105,20,0.12) 0%, transparent 70%)',
-                                }}
-                            />
-                            <div
-                                style={{
-                                    position: 'absolute',
-                                    inset: 0,
-                                    display: 'flex',
-                                    flexDirection: 'column',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    textAlign: 'center',
-                                    gap: '1.5rem',
-                                }}
-                            >
-                                <div style={{ width: '60px', height: '1px', background: 'var(--color-gold-dark)' }} />
-                                <p
-                                    style={{
-                                        fontFamily: 'var(--font-serif)',
-                                        fontStyle: 'italic',
-                                        fontSize: 'clamp(1.3rem, 3vw, 2rem)',
-                                        color: 'var(--color-gold-dark)',
-                                        letterSpacing: '0.04em',
-                                        lineHeight: 1.4,
-                                        padding: '0 2rem',
-                                    }}
-                                >
-                                    "L'Élégance Africaine<br />au Sommet du Monde"
-                                </p>
-                                <div style={{ width: '60px', height: '1px', background: 'var(--color-gold-dark)' }} />
-                            </div>
-                            {/* Cadre doré */}
-                            <div
-                                style={{
-                                    position: 'absolute',
-                                    top: '1.25rem',
-                                    left: '1.25rem',
-                                    right: '1.25rem',
-                                    bottom: '1.25rem',
-                                    border: '1px solid rgba(139,105,20,0.3)',
-                                    pointerEvents: 'none',
-                                }}
-                            />
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* ── Chiffres clés (fond noir) ──────────────────── */}
-            <section className="bg-black py-20!" ref={statsRef}>
-                <div className={`container`}>
-                    <div className="relative flex w-full flex-col-reverse text-center">
-                        <h2 className="uppercase font-bold text-balance text-4xl lg:text-7xl! block">
-                            CHIFFRES
-                        </h2>
-                        <span className="w-full rotate-[-2deg] font-serif text-gold font-quickbrush -mb-1! xl:-mb-2 text-4xl lg:text-6xl">
-                            Clés
-                        </span>
-                    </div>
-                    <div
-                        style={{
-                            display: 'grid',
-                            gridTemplateColumns: isDesktop ? 'repeat(4, 1fr)' : 'repeat(2, 1fr)',
-                            gap: '2px',
-                        }}
-                    >
-                        {STATS.map(({ num, label }) => (
-                            <div
-                                key={label}
-                                className="stat-item"
-                                style={{
-                                    padding: 'clamp(2rem, 5vw, 4rem) 2rem',
-                                    textAlign: 'center',
-                                    borderRight: '1px solid rgba(201,168,76,0.15)',
-                                }}
-                            >
-                                <p
-                                    style={{
-                                        fontFamily: 'var(--font-serif)',
-                                        fontSize: 'clamp(3rem, 6vw, 5rem)',
-                                        fontWeight: 300,
-                                        color: 'var(--color-gold)',
-                                        lineHeight: 1,
-                                        marginBottom: '0.75rem',
-                                    }}
-                                >
-                                    {num}
-                                </p>
-                                <p
-                                    style={{
-                                        fontFamily: 'var(--font-sans)',
-                                        fontSize: '0.65rem',
-                                        letterSpacing: '0.2em',
-                                        color: 'rgba(255,255,255,0.45)',
-                                        textTransform: 'uppercase',
-                                    }}
-                                >
-                                    {label}
-                                </p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* ── Nos Valeurs (fond blanc) ───────────────────── */}
-            <section className="bg-white py-20! text-black px-10! lg:px-0!">
-                <div className={isDesktop ? 'px-12!' : 'px-5'} >
-                    <div className="relative flex w-full flex-col-reverse ">
-                        <h2 className="uppercase font-bold text-balance text-4xl lg:text-7xl! block">
-                            Ce qui guide
-                            <em style={{ color: 'var(--color-gold-dark)' }}> chaque geste</em>
-                        </h2>
-                        <span className="w-full rotate-[-2deg] font-serif text-gold font-quickbrush mb-3! xl:-mb-2 text-4xl lg:text-6xl">
-                            Nos valeurs
-                        </span>
-                    </div>
-
-                    <div
-                        ref={valuesRef}
-                        style={{
-                            display: 'grid',
-                            gridTemplateColumns: isDesktop ? 'repeat(4, 1fr)' : '1fr',
-                            gap: '1px',
-                            background: 'rgba(0,0,0,0.08)',
-                        }}
-                    >
-                        {VALUES.map(({ icon, label, desc }) => (
-                            <div
-                                key={label}
-                                className="value-card"
-                                style={{
-                                    background: '#fff',
-                                    padding: 'clamp(2rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2.5rem)',
-                                    transition: 'background 0.3s',
-                                    cursor: 'default',
-                                }}
-                                onMouseEnter={e => (e.currentTarget.style.background = '#f9f6ee')}
-                                onMouseLeave={e => (e.currentTarget.style.background = '#fff')}
-                            >
-                                <div
-                                    style={{
-                                        fontFamily: 'var(--font-serif)',
-                                        fontSize: '2rem',
-                                        color: 'var(--color-gold-dark)',
-                                        marginBottom: '1.5rem',
-                                        lineHeight: 1,
-                                    }}
-                                >
-                                    {icon}
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mt-16">
+                        {[
+                            { label: 'Excellence', img: imgA9, desc: "Chaque point de couture, chaque coupe est pensé avec une exigence absolue. L'imperfection n'a pas sa place dans notre atelier." },
+                            { label: 'Authenticité', img: imgB1, desc: "Nos créations s'ancrent dans l'identité africaine — ses textures, ses pigments, ses rythmes — pour rayonner sur la scène internationale." },
+                            { label: 'Intemporalité', img: imgB2, desc: "Nous créons contre la tyrannie des tendances. Une pièce Algueye doit traverser les décennies sans jamais vieillir." },
+                            { label: 'Artisanat', img: imgB3, desc: "Le savoir-faire est transmis de main en main. Chaque broderie, chaque drapé est l'œuvre d'artisans formés avec patience." }
+                        ].map((v, i) => (
+                            <div key={i} className="flex flex-col gap-6 group">
+                                <div className="aspect-[3/4] overflow-hidden  relative">
+                                    <img src={v.img} alt={v.label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                                    <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500" />
                                 </div>
-                                <h3
-                                    style={{
-                                        fontFamily: 'var(--font-sans)',
-                                        fontSize: '0.65rem',
-                                        letterSpacing: '0.2em',
-                                        fontWeight: 500,
-                                        textTransform: 'uppercase',
-                                        color: '#000',
-                                        marginBottom: '1rem',
-                                    }}
-                                >
-                                    {label}
-                                </h3>
-                                <p
-                                    style={{
-                                        fontFamily: 'var(--font-sans)',
-                                        fontSize: '0.9rem',
-                                        lineHeight: 1.8,
-                                        color: '#6b7280',
-                                        margin: 0,
-                                    }}
-                                >
-                                    {desc}
-                                </p>
+                                <div className="flex flex-col gap-2">
+                                    <span className="text-gold font-serif text-2xl">0{i+1}.</span>
+                                    <h3 className="text-xl font-bold uppercase tracking-widest text-white">{v.label}</h3>
+                                    <p className="text-white/60 leading-relaxed raleway text-sm">{v.desc}</p>
+                                </div>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* ── Manifeste (fond noir) ──────────────────────── */}
-            <section className="bg-black py-24!" ref={manifestoRef}>
-                <div className="relative flex w-full flex-col-reverse text-center mb-3!">
-                    <h2 className="uppercase font-bold text-balance text-4xl lg:text-6xl! block">
-                        Ce qui guide
-                        <em style={{ color: 'var(--color-gold-dark)' }}> chaque geste</em>
-                    </h2>
-                    <span className="w-full rotate-[-2deg] font-serif text-gold font-quickbrush -mb-1! xl:-mb-2 text-4xl lg:text-6xl">
-                        Notre manifeste
-                    </span>
-                </div>
-                <div className="container" style={{ maxWidth: '1000px' }}>
-                    <blockquote
-                        style={{
-                            fontFamily: 'var(--font-serif)',
-                            fontStyle: 'italic',
-                            fontSize: 'clamp(1.6rem, 4vw, 2.8rem)',
-                            fontWeight: 300,
-                            lineHeight: 1.4,
-                            color: 'rgba(255,255,255,0.9)',
-                            textAlign: 'center',
-                            borderLeft: 'none',
-                            padding: 0,
-                            margin: 0,
-                        }}
-                    >
-                        "Nous ne créons pas des vêtements.<br />
-                        <em style={{ color: 'var(--color-gold)' }}>Nous façonnons des identités.</em><br />
-                        Nous tissons des histoires qui voyagent."
+            {/* ── Manifeste ────────────────────────────────── */}
+            <section className="bg-gold py-32! lg:py-48!" ref={manifestoRef}>
+                <div className="container max-w-4xl mx-auto px-6 text-center">
+                    <div className="relative flex w-full flex-col-reverse pt-5! ">
+                        <h2 className="uppercase font-bold text-balance text-3xl lg:text-6xl block">
+                            Notre<em className="not-italic" style={{ color: 'var(--color-black)' }}> Manifeste</em>
+                        </h2>
+                        <span className="w-full rotate-[-2deg] font-serif  text-black font-quickbrush -mb-2 xl:-mb-4 text-3xl lg:text-5xl">
+                            Esprit Algueye
+                        </span>
+                    </div>
+                    <blockquote className="text-3xl lg:text-5xl font-serif italic text-white/90 leading-tight mb-12">
+                        "Nous ne créons pas des vêtements. <br/>
+                        <span className="text-black">Nous façonnons des identités.</span> <br/>
+                        Nous tissons des histoires qui voyagent, <br/>
+                        des racines qui s'envolent."
                     </blockquote>
-                    <div
-                        style={{
-                            width: '80px',
-                            height: '1px',
-                            background: 'var(--color-gold)',
-                            margin: '3rem auto 0',
-                        }}
-                    />
-                    <p
-                        style={{
-                            textAlign: 'center',
-                            fontFamily: 'var(--font-sans)',
-                            fontSize: '0.65rem',
-                            letterSpacing: '0.25em',
-                            color: 'rgba(255,255,255,0.35)',
-                            textTransform: 'uppercase',
-                            marginTop: '1.5rem',
-                        }}
-                    >
+                    <div className="w-20 h-[1px] bg-gold mx-auto mb-8" />
+                    <p className="uppercase tracking-[0.3em] text-xs text-white/40">
                         — Abdou Lahad GUEYE, Fondateur
                     </p>
                 </div>
             </section>
 
-            {/* ── Timeline (fond blanc) ─────────────────────── */}
-            <section className="bg-white py-20! text-black">
-                <div className={isDesktop ? 'px-12!' : 'px-5'} style={{ maxWidth: 'var(--container)', margin: '0 auto' }}>
-                    <div className="relative flex w-full flex-col-reverse text-center mb-15!">
-                        <h2 className="uppercase font-bold text-balance text-4xl lg:text-6xl! block">
-                            Les étapes d'une
-                            <em style={{ color: 'var(--color-gold-dark)' }}> maison qui grandit</em>
+            {/* ── Les Secrets de Confection ────────────────── */}
+            <IngredientsDetailSection/>
+
+            {/* ── Chapitre 4: L'Héritage ───────────────────── */}
+            <StoryChapter
+                chapterNumber="CHAPITRE IV"
+                title="L'Écho du Monde"
+                subtitle="Un héritage sans frontières"
+                image={heroImg}
+                reverse={true}
+                content={[
+                    "Aujourd'hui, Algueye Dakar franchit les océans. De Paris à Lagos, de New York à Tokyo, notre vision de l'élégance africaine s'impose par sa justesse et son intemporalité.",
+                    "Mais peu importe où nos collections voyagent, elles reviennent toujours à leur essence : l'authenticité. Nous restons fidèles à nos valeurs de transmission et d'artisanat d'excellence.",
+                    "L'aventure ne fait que commencer. Chaque nouveau client, chaque nouvelle rencontre est un nouveau chapitre que nous écrivons ensemble."
+                ]}
+            />
+
+            {/* Gallery for L'Echo du Monde */}
+            <section className="bg-white py-20! overflow-hidden">
+                <div className="container mx-auto px-6">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div className="aspect-[4/5] overflow-hidden  shadow-xl">
+                            <img src={imgWorld1} alt="Algueye World" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
+                        </div>
+                        <div className="aspect-[4/5] overflow-hidden  shadow-xl md:translate-y-12">
+                            <img src={imgWorld2} alt="Algueye World" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
+                        </div>
+                        <div className="aspect-[4/5] overflow-hidden  shadow-xl">
+                            <img src={imgWorld3} alt="Algueye World" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ── Chiffres Clés ────────────────────────────── */}
+            <section className="bg-black py-24! text-white">
+                <div className="container mx-auto px-6">
+                    <div className="relative flex w-full text-center flex-col-reverse pt-5! ">
+                        <h2 className="uppercase font-bold text-balance text-3xl lg:text-6xl block">
+                            Réalisations <em className="not-italic" style={{ color: 'var(--color-gold)' }}>Clés</em>
                         </h2>
-                        <span className="w-full rotate-[-2deg] font-serif text-gold font-quickbrush -mb-1! xl:-mb-2 text-4xl lg:text-5xl">
-                            Notre parcours
+                        <span className="w-full rotate-[-2deg] font-serif  text-gold font-quickbrush -mb-2 xl:-mb-4 text-3xl lg:text-5xl">
+                            Notre histoire en chiffres
                         </span>
                     </div>
-
-
-                    <div ref={timelineRef} style={{ position: 'relative' }}>
-                        {/* Ligne verticale */}
-                        <div
-                            style={{
-                                position: 'absolute',
-                                left: isDesktop ? '120px' : '60px',
-                                top: 0,
-                                bottom: 0,
-                                width: '1px',
-                                background: 'rgba(139,105,20,0.25)',
-                            }}
-                        />
-
-                        {TIMELINE.map(({ year, event }, i) => (
-                            <div
-                                key={i}
-                                className="timeline-item"
-                                style={{
-                                    display: 'flex',
-                                    gap: isDesktop ? '3rem' : '1.5rem',
-                                    paddingBottom: '2.5rem',
-                                    alignItems: 'flex-start',
-                                    position: 'relative',
-                                }}
-                            >
-                                {/* Année */}
-                                <div
-                                    style={{
-                                        flexShrink: 0,
-                                        width: isDesktop ? '120px' : '60px',
-                                        fontFamily: 'var(--font-serif)',
-                                        fontSize: isDesktop ? '1.5rem' : '1.1rem',
-                                        color: 'var(--color-gold-dark)',
-                                        fontWeight: 300,
-                                        textAlign: 'right',
-                                        paddingRight: isDesktop ? '2rem' : '1rem',
-                                        lineHeight: 1,
-                                        paddingTop: '2px',
-                                    }}
-                                >
-                                    {year}
-                                </div>
-
-                                {/* Point sur la ligne */}
-                                <div
-                                    style={{
-                                        position: 'absolute',
-                                        left: isDesktop ? '112px' : '52px',
-                                        top: '6px',
-                                        width: '16px',
-                                        height: '16px',
-                                        borderRadius: '50%',
-                                        background: '#fff',
-                                        border: '2px solid var(--color-gold-dark)',
-                                        zIndex: 1,
-                                    }}
-                                />
-
-                                {/* Texte */}
-                                <p
-                                    style={{
-                                        paddingLeft: isDesktop ? '1.5rem' : '1rem',
-                                        fontFamily: 'var(--font-sans)',
-                                        fontSize: '1rem',
-                                        lineHeight: 1.7,
-                                        color: '#374151',
-                                        margin: 0,
-                                    }}
-                                >
-                                    {event}
-                                </p>
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-16">
+                        {[
+                            { num: '2012', label: "Le début d'un rêve à Dakar" },
+                            { num: '1000+', label: 'Âmes sublimées par nos coupes' },
+                            { num: '30+', label: "Frontières franchies par l'élégance" },
+                            { num: '80+', label: 'Heures de dévouement par pièce' }
+                        ].map((s, i) => (
+                            <div key={i} className="text-center group">
+                                <div className="text-4xl lg:text-7xl font-serif text-gold mb-2 group-hover:scale-110 transition-transform duration-500">{s.num}</div>
+                                <div className="text-[10px] lg:text-xs uppercase tracking-[0.3em] text-white/50 leading-relaxed">{s.label}</div>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* ── CTA Final (fond noir) ──────────────────────── */}
-            <section
-                className="bg-black py-24!"
-                style={{
-                    textAlign: 'center',
-                    borderTop: '1px solid rgba(201,168,76,0.2)',
-                }}
-            >
-                <div className="container">
-                    <div className="relative flex w-full flex-col-reverse text-center mb-15!">
-                        <h2 className="uppercase font-bold text-balance text-4xl lg:text-6xl! block">
-                            TRAVAILLER AVEC
-                            <em style={{ color: 'var(--color-gold-dark)' }}> NOUS</em>
+            {/* ── CTA Final ────────────────────────────────── */}
+            <section className="bg-white py-24! text-center border-t border-gray-100">
+                <div className="container mx-auto px-6">
+                    <div className="relative flex w-full text-center flex-col-reverse pt-5! ">
+                        <h2 className="uppercase font-bold text-balance text-black text-3xl lg:text-6xl block">
+                            Rejoignez <em className="not-italic" style={{ color: 'var(--color-gold)' }}>l'Aventure</em>
                         </h2>
-                        <span className="w-full rotate-[-2deg] font-serif text-gold font-quickbrush -mb-1! xl:-mb-2 text-4xl lg:text-5xl">
-                            Rejoignez l'aventure
+                        <span className="w-full rotate-[-2deg] font-serif  text-gold font-quickbrush -mb-2 xl:-mb-4 text-3xl lg:text-5xl">
+                            Un univers à portée de main
                         </span>
                     </div>
-                    <h2
-                        style={{
-                            fontFamily: 'var(--font-serif)',
-                            fontSize: 'clamp(2rem, 5vw, 4rem)',
-                            fontWeight: 300,
-                            lineHeight: 1.1,
-                            color: '#fff',
-                            marginBottom: '2.5rem',
-                        }}
-                    >
-                        Donnons vie à votre<br />
-                        <em style={{ color: 'var(--color-gold)' }}>vision sur-mesure</em>
-                    </h2>
-                    <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+                    <p className="text-gray-600 max-w-2xl mx-auto! mb-12! text-lg lg:text-xl">
+                        Que ce soit pour une pièce sur-mesure ou pour découvrir nos collections, 
+                        chaque rencontre commence par une histoire.
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-6 justify-center">
                         <a href="/contact" className="btn-gold">
-                            <span>Prendre rendez-vous</span>
+                            <span>Écrivons votre histoire</span>
                         </a>
                         <a href="/collections" className="btn-outline">
-                            <span>Voir les collections</span>
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                <path d="M5 12h14M12 5l7 7-7 7" />
-                            </svg>
+                            <span>Explorer les collections</span>
                         </a>
                     </div>
                 </div>
